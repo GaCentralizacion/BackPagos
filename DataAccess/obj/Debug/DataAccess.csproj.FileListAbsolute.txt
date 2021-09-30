@@ -1,0 +1,127 @@
+C:\proyectos\pagos\Pagos\DataAccess\bin\Debug\DataAccess.dll.config
+C:\proyectos\pagos\Pagos\DataAccess\bin\Debug\DataAccess.dll
+C:\proyectos\pagos\Pagos\DataAccess\bin\Debug\DataAccess.pdb
+C:\proyectos\pagos\Pagos\DataAccess\bin\Debug\EntityFramework.dll
+C:\proyectos\pagos\Pagos\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\proyectos\pagos\Pagos\DataAccess\bin\Debug\EntityFramework.xml
+C:\proyectos\pagos\Pagos\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\proyectos\pagos\Pagos\DataAccess\obj\Debug\DataAccess.dll
+C:\proyectos\pagos\Pagos\DataAccess\obj\Debug\DataAccess.pdb
+C:\Desarrollo\FAL\pagosbk\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Desarrollo\FAL\pagosbk\DataAccess\bin\Debug\DataAccess.dll
+C:\Desarrollo\FAL\pagosbk\DataAccess\bin\Debug\DataAccess.pdb
+C:\Desarrollo\FAL\pagosbk\DataAccess\bin\Debug\EntityFramework.dll
+C:\Desarrollo\FAL\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Desarrollo\FAL\pagosbk\DataAccess\bin\Debug\EntityFramework.xml
+C:\Desarrollo\FAL\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Desarrollo\FAL\pagosbk\DataAccess\obj\Debug\DataAccess.dll
+C:\Desarrollo\FAL\pagosbk\DataAccess\obj\Debug\DataAccess.pdb
+C:\Desarrollo\FAL\pagosbk\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\Desarrollo\FAL\respaldo\18042016\pagosbk\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Desarrollo\FAL\respaldo\18042016\pagosbk\DataAccess\bin\Debug\DataAccess.dll
+C:\Desarrollo\FAL\respaldo\18042016\pagosbk\DataAccess\bin\Debug\DataAccess.pdb
+C:\Desarrollo\FAL\respaldo\18042016\pagosbk\DataAccess\bin\Debug\EntityFramework.dll
+C:\Desarrollo\FAL\respaldo\18042016\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Desarrollo\FAL\respaldo\18042016\pagosbk\DataAccess\bin\Debug\EntityFramework.xml
+C:\Desarrollo\FAL\respaldo\18042016\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Desarrollo\FAL\respaldo\18042016\pagosbk\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\Desarrollo\FAL\respaldo\18042016\pagosbk\DataAccess\obj\Debug\DataAccess.dll
+C:\Desarrollo\FAL\respaldo\18042016\pagosbk\DataAccess\obj\Debug\DataAccess.pdb
+C:\Desarrollo\FAL\pagosbk\pagosbk\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Desarrollo\FAL\pagosbk\pagosbk\DataAccess\bin\Debug\DataAccess.dll
+C:\Desarrollo\FAL\pagosbk\pagosbk\DataAccess\bin\Debug\DataAccess.pdb
+C:\Desarrollo\FAL\pagosbk\pagosbk\DataAccess\bin\Debug\EntityFramework.dll
+C:\Desarrollo\FAL\pagosbk\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Desarrollo\FAL\pagosbk\pagosbk\DataAccess\bin\Debug\EntityFramework.xml
+C:\Desarrollo\FAL\pagosbk\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Desarrollo\FAL\pagosbk\pagosbk\DataAccess\obj\Debug\DataAccess.dll
+C:\Desarrollo\FAL\pagosbk\pagosbk\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\Hp\Documents\abProject\pagosbk\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\Hp\Documents\abProject\pagosbk\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\Hp\Documents\abProject\pagosbk\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\Hp\Documents\abProject\pagosbk\DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\Hp\Documents\abProject\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Hp\Documents\abProject\pagosbk\DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\Hp\Documents\abProject\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Hp\Documents\abProject\pagosbk\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Hp\Documents\abProject\pagosbk\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\Hp\Documents\abProject\pagosbk\DataAccess\obj\Debug\DataAccess.pdb
+E:\Bis\pagos\pagosbk\DataAccess\bin\Debug\DataAccess.dll.config
+E:\Bis\pagos\pagosbk\DataAccess\bin\Debug\DataAccess.dll
+E:\Bis\pagos\pagosbk\DataAccess\bin\Debug\DataAccess.pdb
+E:\Bis\pagos\pagosbk\DataAccess\bin\Debug\EntityFramework.dll
+E:\Bis\pagos\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+E:\Bis\pagos\pagosbk\DataAccess\bin\Debug\EntityFramework.xml
+E:\Bis\pagos\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+E:\Bis\pagos\pagosbk\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+E:\Bis\pagos\pagosbk\DataAccess\obj\Debug\DataAccess.dll
+E:\Bis\pagos\pagosbk\DataAccess\obj\Debug\DataAccess.pdb
+C:\Bis\pagos\pagosbk\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Bis\pagos\pagosbk\DataAccess\bin\Debug\DataAccess.dll
+C:\Bis\pagos\pagosbk\DataAccess\bin\Debug\DataAccess.pdb
+C:\Bis\pagos\pagosbk\DataAccess\bin\Debug\EntityFramework.dll
+C:\Bis\pagos\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Bis\pagos\pagosbk\DataAccess\bin\Debug\EntityFramework.xml
+C:\Bis\pagos\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Bis\pagos\pagosbk\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\Bis\pagos\pagosbk\DataAccess\obj\Debug\DataAccess.dll
+C:\Bis\pagos\pagosbk\DataAccess\obj\Debug\DataAccess.pdb
+C:\Bis\pagos V3\pagosbk\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Bis\pagos V3\pagosbk\DataAccess\bin\Debug\DataAccess.dll
+C:\Bis\pagos V3\pagosbk\DataAccess\bin\Debug\DataAccess.pdb
+C:\Bis\pagos V3\pagosbk\DataAccess\bin\Debug\EntityFramework.dll
+C:\Bis\pagos V3\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Bis\pagos V3\pagosbk\DataAccess\bin\Debug\EntityFramework.xml
+C:\Bis\pagos V3\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Bis\pagos V3\pagosbk\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\Bis\pagos V3\pagosbk\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+C:\Bis\pagos V3\pagosbk\DataAccess\obj\Debug\DataAccess.dll
+C:\Bis\pagos V3\pagosbk\DataAccess\obj\Debug\DataAccess.pdb
+C:\COAL\pagos\pagosbk\pagosbk\DataAccess\bin\Debug\DataAccess.dll.config
+C:\COAL\pagos\pagosbk\pagosbk\DataAccess\bin\Debug\DataAccess.dll
+C:\COAL\pagos\pagosbk\pagosbk\DataAccess\bin\Debug\DataAccess.pdb
+C:\COAL\pagos\pagosbk\pagosbk\DataAccess\bin\Debug\EntityFramework.dll
+C:\COAL\pagos\pagosbk\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\COAL\pagos\pagosbk\pagosbk\DataAccess\bin\Debug\EntityFramework.xml
+C:\COAL\pagos\pagosbk\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\COAL\pagos\pagosbk\pagosbk\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\COAL\pagos\pagosbk\pagosbk\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+C:\COAL\pagos\pagosbk\pagosbk\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
+C:\COAL\pagos\pagosbk\pagosbk\DataAccess\obj\Debug\DataAccess.dll
+C:\COAL\pagos\pagosbk\pagosbk\DataAccess\obj\Debug\DataAccess.pdb
+C:\fal\desarrollo\pagos\cambio14032019\fuente\pagosbk\pagosbk\DataAccess\bin\Debug\DataAccess.dll.config
+C:\fal\desarrollo\pagos\cambio14032019\fuente\pagosbk\pagosbk\DataAccess\bin\Debug\DataAccess.dll
+C:\fal\desarrollo\pagos\cambio14032019\fuente\pagosbk\pagosbk\DataAccess\bin\Debug\DataAccess.pdb
+C:\fal\desarrollo\pagos\cambio14032019\fuente\pagosbk\pagosbk\DataAccess\bin\Debug\EntityFramework.dll
+C:\fal\desarrollo\pagos\cambio14032019\fuente\pagosbk\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\fal\desarrollo\pagos\cambio14032019\fuente\pagosbk\pagosbk\DataAccess\bin\Debug\EntityFramework.xml
+C:\fal\desarrollo\pagos\cambio14032019\fuente\pagosbk\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\fal\desarrollo\pagos\cambio14032019\fuente\pagosbk\pagosbk\DataAccess\obj\Debug\DataAccess.csprojAssemblyReference.cache
+C:\fal\desarrollo\pagos\cambio14032019\fuente\pagosbk\pagosbk\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+C:\fal\desarrollo\pagos\cambio14032019\fuente\pagosbk\pagosbk\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
+C:\fal\desarrollo\pagos\cambio14032019\fuente\pagosbk\pagosbk\DataAccess\obj\Debug\DataAccess.dll
+C:\fal\desarrollo\pagos\cambio14032019\fuente\pagosbk\pagosbk\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\user\anarkia\PagosBackEnd\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\user\anarkia\PagosBackEnd\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\user\anarkia\PagosBackEnd\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\user\anarkia\PagosBackEnd\DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\user\anarkia\PagosBackEnd\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\anarkia\PagosBackEnd\DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\user\anarkia\PagosBackEnd\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\anarkia\PagosBackEnd\DataAccess\obj\Debug\DataAccess.csprojAssemblyReference.cache
+C:\Users\user\anarkia\PagosBackEnd\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\user\anarkia\PagosBackEnd\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
+C:\Users\user\anarkia\PagosBackEnd\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\user\anarkia\PagosBackEnd\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\Dell\Documents\Laura\Andrade\Aplicaciones\Pagos\Back_89\pagosbk\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\Dell\Documents\Laura\Andrade\Aplicaciones\Pagos\Back_89\pagosbk\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\Dell\Documents\Laura\Andrade\Aplicaciones\Pagos\Back_89\pagosbk\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\Dell\Documents\Laura\Andrade\Aplicaciones\Pagos\Back_89\pagosbk\DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\Dell\Documents\Laura\Andrade\Aplicaciones\Pagos\Back_89\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Dell\Documents\Laura\Andrade\Aplicaciones\Pagos\Back_89\pagosbk\DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\Dell\Documents\Laura\Andrade\Aplicaciones\Pagos\Back_89\pagosbk\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Dell\Documents\Laura\Andrade\Aplicaciones\Pagos\Back_89\pagosbk\DataAccess\obj\Debug\DataAccess.csproj.AssemblyReference.cache
+C:\Users\Dell\Documents\Laura\Andrade\Aplicaciones\Pagos\Back_89\pagosbk\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Documents\Laura\Andrade\Aplicaciones\Pagos\Back_89\pagosbk\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
+C:\Users\Dell\Documents\Laura\Andrade\Aplicaciones\Pagos\Back_89\pagosbk\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\Dell\Documents\Laura\Andrade\Aplicaciones\Pagos\Back_89\pagosbk\DataAccess\obj\Debug\DataAccess.pdb

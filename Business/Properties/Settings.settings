@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Business.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Business_WebReference_WS_Gen_Pdf" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.20.89:8091/WS_Gen_Pdf.asmx</Value>
+    </Setting>
+    <Setting Name="HostBanamex" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">192.168.20.111</Value>
+    </Setting>
+    <Setting Name="UserBanamex" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sftpbnmx</Value>
+    </Setting>
+    <Setting Name="PasswordBanamex" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">B4n4m3x</Value>
+    </Setting>
+    <Setting Name="WorkFolderBanamex" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/upload</Value>
+    </Setting>
+    <Setting Name="PortBanamex" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">22</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

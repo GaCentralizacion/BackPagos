@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GeneraPdfPolizaCompra">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PolTipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PolAnio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PolMes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PolNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Empresa" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GeneraPdfPolizaCompraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GeneraPdfPolizaCompraResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerarPdfArray">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Documento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Nodo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerarPdfArrayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerarPdfArrayResult" type="tns:ArrayOfBase64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBase64Binary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="base64Binary" nillable="true" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RutaDocumento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Documento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Nodo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Estatus" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RutaDocumentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RutaDocumentoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerarPdf">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Documento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Nodo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerarPdfResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerarPdfResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GeneraPdfPolizaCompraSoapIn">
+    <wsdl:part name="parameters" element="tns:GeneraPdfPolizaCompra" />
+  </wsdl:message>
+  <wsdl:message name="GeneraPdfPolizaCompraSoapOut">
+    <wsdl:part name="parameters" element="tns:GeneraPdfPolizaCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerarPdfArraySoapIn">
+    <wsdl:part name="parameters" element="tns:GenerarPdfArray" />
+  </wsdl:message>
+  <wsdl:message name="GenerarPdfArraySoapOut">
+    <wsdl:part name="parameters" element="tns:GenerarPdfArrayResponse" />
+  </wsdl:message>
+  <wsdl:message name="RutaDocumentoSoapIn">
+    <wsdl:part name="parameters" element="tns:RutaDocumento" />
+  </wsdl:message>
+  <wsdl:message name="RutaDocumentoSoapOut">
+    <wsdl:part name="parameters" element="tns:RutaDocumentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerarPdfSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerarPdf" />
+  </wsdl:message>
+  <wsdl:message name="GenerarPdfSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerarPdfResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WS_Gen_PdfSoap">
+    <wsdl:operation name="GeneraPdfPolizaCompra">
+      <wsdl:input message="tns:GeneraPdfPolizaCompraSoapIn" />
+      <wsdl:output message="tns:GeneraPdfPolizaCompraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerarPdfArray">
+      <wsdl:input message="tns:GenerarPdfArraySoapIn" />
+      <wsdl:output message="tns:GenerarPdfArraySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RutaDocumento">
+      <wsdl:input message="tns:RutaDocumentoSoapIn" />
+      <wsdl:output message="tns:RutaDocumentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerarPdf">
+      <wsdl:input message="tns:GenerarPdfSoapIn" />
+      <wsdl:output message="tns:GenerarPdfSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WS_Gen_PdfSoap" type="tns:WS_Gen_PdfSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GeneraPdfPolizaCompra">
+      <soap:operation soapAction="http://tempuri.org/GeneraPdfPolizaCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarPdfArray">
+      <soap:operation soapAction="http://tempuri.org/GenerarPdfArray" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RutaDocumento">
+      <soap:operation soapAction="http://tempuri.org/RutaDocumento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarPdf">
+      <soap:operation soapAction="http://tempuri.org/GenerarPdf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WS_Gen_PdfSoap12" type="tns:WS_Gen_PdfSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GeneraPdfPolizaCompra">
+      <soap12:operation soapAction="http://tempuri.org/GeneraPdfPolizaCompra" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarPdfArray">
+      <soap12:operation soapAction="http://tempuri.org/GenerarPdfArray" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RutaDocumento">
+      <soap12:operation soapAction="http://tempuri.org/RutaDocumento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarPdf">
+      <soap12:operation soapAction="http://tempuri.org/GenerarPdf" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WS_Gen_Pdf">
+    <wsdl:port name="WS_Gen_PdfSoap" binding="tns:WS_Gen_PdfSoap">
+      <soap:address location="http://192.168.20.89:8091/WS_Gen_Pdf.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WS_Gen_PdfSoap12" binding="tns:WS_Gen_PdfSoap12">
+      <soap12:address location="http://192.168.20.89:8091/WS_Gen_Pdf.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

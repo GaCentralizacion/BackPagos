@@ -1,0 +1,9 @@
+﻿El modelo se generó con advertencias o errores.PagosModel.edmxVea la lista de errores para obtener más detalles. Se deben corregir estos problemas antes de ejecutar la aplicación.
+La carga de los metadatos desde la base de datos tardó 00:00:01.3588161.
+La generación del modelo tardó 00:00:03.9584921.
+El modelo se generó con advertencias o errores.PagosModel.edmxVea la lista de errores para obtener más detalles. Se deben corregir estos problemas antes de ejecutar la aplicación.
+La carga de los metadatos desde la base de datos tardó 00:00:00.8972736.
+La generación del modelo tardó 00:00:02.8330796.
+El modelo se generó con advertencias o errores.PagosModel.edmxVea la lista de errores para obtener más detalles. Se deben corregir estos problemas antes de ejecutar la aplicación.
+La carga de los metadatos desde la base de datos tardó 00:00:00.9285269.
+La generación del modelo tardó 00:00:01.1726871.

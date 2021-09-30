@@ -1,0 +1,964 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PagosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="PAG_CAT_AGRUPADORES">
+    <Key>
+      <PropertyRef Name="pca_idAgrupador" />
+    </Key>
+    <Property Name="pca_idAgrupador" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pca_idEmpresa" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pca_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pca_descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="pca_orden" Type="Int32" />
+    <Property Name="pca_estatus" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PAG_COLUMNA">
+    <Key>
+      <PropertyRef Name="pac_idColumna" />
+    </Key>
+    <Property Name="pac_idColumna" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pac_columna" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pac_label" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="pac_width" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="PAG_COLUMNA_USUARIO" Relationship="Self.FK_PAG_COLUMNA_USUARIO_PAG_COLUMNA" FromRole="PAG_COLUMNA" ToRole="PAG_COLUMNA_USUARIO" />
+  </EntityType>
+  <EntityType Name="PAG_LOTE_PAGO">
+    <Key>
+      <PropertyRef Name="pal_id_lote_pago" />
+    </Key>
+    <Property Name="pal_id_lote_pago" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pal_id_empresa" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pal_id_usuario" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pal_fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="pal_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pal_total_pagar" Type="Decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="pal_cartera_vencida" Type="Decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="pal_no_incluido" Type="Decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="pal_no_pagable" Type="Decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="pal_reprogramado" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pal_estatus" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="PAG_FLUJO_INGRESO_BANCOS" Relationship="Self.FK_PAG_FLUJO_INGRESO_BANCOS_PAG_LOTE_PAGO" FromRole="PAG_LOTE_PAGO" ToRole="PAG_FLUJO_INGRESO_BANCOS" />
+    <NavigationProperty Name="PAG_PROGRA_PAGOS_DETALLE" Relationship="Self.FK_PAG_PROGRA_PAGOS_DETALLE_PAG_LOTE_PAGO" FromRole="PAG_LOTE_PAGO" ToRole="PAG_PROGRA_PAGOS_DETALLE" />
+    <NavigationProperty Name="PAG_TRANSFERENCIAS_BANCARIAS" Relationship="Self.FK_PAG_TRANSFERENCIAS_BANCARIAS_PAG_LOTE_PAGO" FromRole="PAG_LOTE_PAGO" ToRole="PAG_TRANSFERENCIAS_BANCARIAS" />
+  </EntityType>
+  <EntityType Name="PAG_PROGRA_PAGOS">
+    <Key>
+      <PropertyRef Name="pag_id" />
+    </Key>
+    <Property Name="pag_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pag_idUsuario" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pag_fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="pag_varAux1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pag_varAux2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PAG_TABLA_PASO_POLIZAS">
+    <Key>
+      <PropertyRef Name="tab_id" />
+    </Key>
+    <Property Name="tab_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pal_id_lote_pago" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pad_polTipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pad_polAnnio" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="pad_polMes" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="pad_polConsecutivo" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="pad_polMovimiento" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="pad_fechaPromesaPago" Type="DateTime" Precision="3" />
+    <Property Name="pad_saldo" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="tab_revision" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PAG_TABLA_PASO_POLIZAS_2">
+    <Key>
+      <PropertyRef Name="tab_id" />
+    </Key>
+    <Property Name="tab_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pag_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pad_polTipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pad_polAnnio" Type="Decimal" Precision="4" Scale="0" />
+    <Property Name="pad_polMes" Type="Decimal" Precision="2" Scale="0" />
+    <Property Name="pad_polConsecutivo" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="pad_polMovimiento" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="pad_fechaPromesaPago" Type="DateTime" Precision="3" />
+    <Property Name="pad_saldo" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="pad_selecccionado" Type="Int32" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="PAG_AGRUPADOR_PROVEEDOR">
+    <Key>
+      <PropertyRef Name="pca_idAgrupador" />
+      <PropertyRef Name="pap_idProveedor" />
+    </Key>
+    <Property Name="pca_idAgrupador" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pap_idProveedor" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pap_orden" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PAG_CAT_PROVEEDORES">
+    <Key>
+      <PropertyRef Name="pcp_id" />
+      <PropertyRef Name="pcp_idProveedor" />
+    </Key>
+    <Property Name="pcp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pcp_idProveedor" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pcp_nombreProveedor" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="pcp_bancoPagar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pcp_cuentaPagadora" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pcp_cuentaProveedor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PAG_COLUMNA_USUARIO">
+    <Key>
+      <PropertyRef Name="pcu_idUsuario" />
+      <PropertyRef Name="pac_idColumna" />
+    </Key>
+    <Property Name="pcu_idUsuario" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pac_idColumna" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pcu_orden" Type="Int32" />
+    <Property Name="pcu_estatus" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PAG_COLUMNA" Relationship="Self.FK_PAG_COLUMNA_USUARIO_PAG_COLUMNA" FromRole="PAG_COLUMNA_USUARIO" ToRole="PAG_COLUMNA" />
+  </EntityType>
+  <EntityType Name="PAG_FLUJO_EFECTIVO">
+    <Key>
+      <PropertyRef Name="pfe_id" />
+    </Key>
+    <Property Name="pfe_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pfe_saldo_banco" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="pfe_saldo_caja" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="pfe_cobranza_esperada" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="pfe_flujo_efectivo" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="pfe_disponible" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="pfe_var_aux1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="pfe_var_aux2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pfe_var_aux3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PAG_FLUJO_EGRESO_BANCOS">
+    <Key>
+      <PropertyRef Name="peb_id" />
+      <PropertyRef Name="pal_id_lote_pago" />
+      <PropertyRef Name="peb_id_cuenta" />
+    </Key>
+    <Property Name="peb_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pal_id_lote_pago" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="peb_id_cuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="peb_saldo" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="peb_aTransferir" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="peb_total" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="peb_excedente" Type="Decimal" Precision="18" Scale="5" />
+  </EntityType>
+  <EntityType Name="PAG_FLUJO_INGRESO_BANCOS">
+    <Key>
+      <PropertyRef Name="pib_id" />
+      <PropertyRef Name="pal_id_lote_pago" />
+      <PropertyRef Name="pib_id_cuenta" />
+      <PropertyRef Name="pib_saldo" />
+      <PropertyRef Name="pib_disponible" />
+    </Key>
+    <Property Name="pib_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pal_id_lote_pago" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pib_id_cuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pib_saldo" Type="Decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="pib_disponible" Type="Decimal" Precision="18" Scale="5" Nullable="false" />
+    <NavigationProperty Name="PAG_LOTE_PAGO" Relationship="Self.FK_PAG_FLUJO_INGRESO_BANCOS_PAG_LOTE_PAGO" FromRole="PAG_FLUJO_INGRESO_BANCOS" ToRole="PAG_LOTE_PAGO" />
+  </EntityType>
+  <EntityType Name="PAG_FLUJO_INGRESO_OTROS">
+    <Key>
+      <PropertyRef Name="pio_id" />
+      <PropertyRef Name="pal_id_lote_pago" />
+      <PropertyRef Name="pio_caja" />
+      <PropertyRef Name="pio_cobranzaEsperada" />
+    </Key>
+    <Property Name="pio_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pal_id_lote_pago" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pio_caja" Type="Decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="pio_cobranzaEsperada" Type="Decimal" Precision="18" Scale="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAG_PROGRA_PAGOS_DETALLE">
+    <Key>
+      <PropertyRef Name="pal_id_lote_pago" />
+      <PropertyRef Name="pad_id" />
+      <PropertyRef Name="pad_polTipo" />
+      <PropertyRef Name="pad_polAnnio" />
+      <PropertyRef Name="pad_polMes" />
+      <PropertyRef Name="pad_polConsecutivo" />
+      <PropertyRef Name="pad_polMovimiento" />
+    </Key>
+    <Property Name="pal_id_lote_pago" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pad_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pad_idProveedor" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="pad_polTipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pad_polAnnio" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="pad_polMes" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="pad_polConsecutivo" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="pad_polMovimiento" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="pad_polFechaOperacion" Type="DateTime" Precision="3" />
+    <Property Name="pad_cuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pad_proveedor" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="pad_documento" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="pad_tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="pad_tipoDocto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pad_cartera" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="pad_monto" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="pad_saldo" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="pad_saldoPorcentaje" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="pad_moneda" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="pad_fechaVencimiento" Type="DateTime" Precision="3" />
+    <Property Name="pad_fechaPromesaPago" Type="DateTime" Precision="3" />
+    <Property Name="pad_fechaRecepcion" Type="DateTime" Precision="3" />
+    <Property Name="pad_fechaFactura" Type="DateTime" Precision="3" />
+    <Property Name="pad_ordenCompra" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="pad_idEstatus" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="pad_estatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="pad_anticipo" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="pad_anticipoAplicado" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="pad_annio" Type="Decimal" Precision="4" Scale="0" />
+    <Property Name="pad_proveedorBloqueado" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="pad_ordenBloqueada" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="pad_diasCobro" Type="Decimal" Precision="3" Scale="0" />
+    <Property Name="pad_aprobado" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="pad_contReprog" Type="Decimal" Precision="3" Scale="0" />
+    <Property Name="pad_documentoPagable" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="pad_aPagar" Type="Int32" />
+    <Property Name="pad_nombreAgrupador" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pad_ordenAgrupador" Type="Int32" />
+    <Property Name="pad_ordenProveedor" Type="Int32" />
+    <Property Name="pad_cuentaProveedor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PAG_LOTE_PAGO" Relationship="Self.FK_PAG_PROGRA_PAGOS_DETALLE_PAG_LOTE_PAGO" FromRole="PAG_PROGRA_PAGOS_DETALLE" ToRole="PAG_LOTE_PAGO" />
+  </EntityType>
+  <EntityType Name="PAG_PROVEEDOR_CUENTA">
+    <Key>
+      <PropertyRef Name="ppc_id" />
+      <PropertyRef Name="ppc_idEmpresa" />
+      <PropertyRef Name="ppc_idProveedor" />
+      <PropertyRef Name="ppc_banco" />
+    </Key>
+    <Property Name="ppc_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ppc_idEmpresa" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ppc_idProveedor" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ppc_banco" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ppc_estatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PAG_SELECT_PRUEBA">
+    <Key>
+      <PropertyRef Name="pal_id_lote_pago" />
+      <PropertyRef Name="pad_id" />
+      <PropertyRef Name="pad_polTipo" />
+      <PropertyRef Name="pad_polAnnio" />
+      <PropertyRef Name="pad_polMes" />
+      <PropertyRef Name="pad_polConsecutivo" />
+      <PropertyRef Name="pad_polMovimiento" />
+    </Key>
+    <Property Name="pal_id_lote_pago" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pad_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pad_polTipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pad_polAnnio" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="pad_polMes" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="pad_polConsecutivo" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="pad_polMovimiento" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="pad_polFechaOperacion" Type="DateTime" Precision="3" />
+    <Property Name="pad_cuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pad_idProveedor" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="pad_proveedor" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="pad_documento" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="pad_tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="pad_tipoDocto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pad_cartera" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="pad_monto" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="pad_saldo" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="pad_saldoPorcentaje" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="pad_moneda" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="pad_fechaVencimiento" Type="DateTime" Precision="3" />
+    <Property Name="pad_fechaPromesaPago" Type="DateTime" Precision="3" />
+    <Property Name="pad_fechaRecepcion" Type="DateTime" Precision="3" />
+    <Property Name="pad_fechaFactura" Type="DateTime" Precision="3" />
+    <Property Name="pad_ordenCompra" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="pad_idEstatus" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="pad_estatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="pad_anticipo" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="pad_anticipoAplicado" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="pad_annio" Type="Decimal" Precision="4" Scale="0" />
+    <Property Name="pad_proveedorBloqueado" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="pad_ordenBloqueada" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="pad_diasCobro" Type="Decimal" Precision="3" Scale="0" />
+    <Property Name="pad_aprobado" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="pad_contReprog" Type="Decimal" Precision="3" Scale="0" />
+    <Property Name="pad_documentoPagable" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="pad_aPagar" Type="Int32" />
+    <Property Name="pad_nombreAgrupador" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="pad_ordenAgrupador" Type="Decimal" Precision="3" Scale="0" />
+    <Property Name="pad_ordenProveedor" Type="Decimal" Precision="3" Scale="0" />
+  </EntityType>
+  <EntityType Name="PAG_TRANSFERENCIAS_BANCARIAS">
+    <Key>
+      <PropertyRef Name="ptb_id" />
+      <PropertyRef Name="pal_id_lote_pago" />
+      <PropertyRef Name="ptb_id_cuenta_origen" />
+      <PropertyRef Name="ptb_id_cuenta_destino" />
+      <PropertyRef Name="ptb_importe" />
+    </Key>
+    <Property Name="ptb_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pal_id_lote_pago" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ptb_id_cuenta_origen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ptb_id_cuenta_destino" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ptb_importe" Type="Decimal" Precision="18" Scale="5" Nullable="false" />
+    <NavigationProperty Name="PAG_LOTE_PAGO" Relationship="Self.FK_PAG_TRANSFERENCIAS_BANCARIAS_PAG_LOTE_PAGO" FromRole="PAG_TRANSFERENCIAS_BANCARIAS" ToRole="PAG_LOTE_PAGO" />
+  </EntityType>
+  <Association Name="FK_PAG_COLUMNA_USUARIO_PAG_COLUMNA">
+    <End Role="PAG_COLUMNA" Type="Self.PAG_COLUMNA" Multiplicity="1" />
+    <End Role="PAG_COLUMNA_USUARIO" Type="Self.PAG_COLUMNA_USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAG_COLUMNA">
+        <PropertyRef Name="pac_idColumna" />
+      </Principal>
+      <Dependent Role="PAG_COLUMNA_USUARIO">
+        <PropertyRef Name="pac_idColumna" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PAG_FLUJO_INGRESO_BANCOS_PAG_LOTE_PAGO">
+    <End Role="PAG_LOTE_PAGO" Type="Self.PAG_LOTE_PAGO" Multiplicity="1" />
+    <End Role="PAG_FLUJO_INGRESO_BANCOS" Type="Self.PAG_FLUJO_INGRESO_BANCOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAG_LOTE_PAGO">
+        <PropertyRef Name="pal_id_lote_pago" />
+      </Principal>
+      <Dependent Role="PAG_FLUJO_INGRESO_BANCOS">
+        <PropertyRef Name="pal_id_lote_pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PAG_PROGRA_PAGOS_DETALLE_PAG_LOTE_PAGO">
+    <End Role="PAG_LOTE_PAGO" Type="Self.PAG_LOTE_PAGO" Multiplicity="1" />
+    <End Role="PAG_PROGRA_PAGOS_DETALLE" Type="Self.PAG_PROGRA_PAGOS_DETALLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAG_LOTE_PAGO">
+        <PropertyRef Name="pal_id_lote_pago" />
+      </Principal>
+      <Dependent Role="PAG_PROGRA_PAGOS_DETALLE">
+        <PropertyRef Name="pal_id_lote_pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PAG_TRANSFERENCIAS_BANCARIAS_PAG_LOTE_PAGO">
+    <End Role="PAG_LOTE_PAGO" Type="Self.PAG_LOTE_PAGO" Multiplicity="1" />
+    <End Role="PAG_TRANSFERENCIAS_BANCARIAS" Type="Self.PAG_TRANSFERENCIAS_BANCARIAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAG_LOTE_PAGO">
+        <PropertyRef Name="pal_id_lote_pago" />
+      </Principal>
+      <Dependent Role="PAG_TRANSFERENCIAS_BANCARIAS">
+        <PropertyRef Name="pal_id_lote_pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PagosEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PAG_CAT_AGRUPADORES" EntityType="Self.PAG_CAT_AGRUPADORES" />
+    <EntitySet Name="PAG_COLUMNA" EntityType="Self.PAG_COLUMNA" />
+    <EntitySet Name="PAG_LOTE_PAGO" EntityType="Self.PAG_LOTE_PAGO" />
+    <EntitySet Name="PAG_PROGRA_PAGOS" EntityType="Self.PAG_PROGRA_PAGOS" />
+    <EntitySet Name="PAG_TABLA_PASO_POLIZAS" EntityType="Self.PAG_TABLA_PASO_POLIZAS" />
+    <EntitySet Name="PAG_TABLA_PASO_POLIZAS_2" EntityType="Self.PAG_TABLA_PASO_POLIZAS_2" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="PAG_AGRUPADOR_PROVEEDOR" EntityType="Self.PAG_AGRUPADOR_PROVEEDOR" />
+    <EntitySet Name="PAG_CAT_PROVEEDORES" EntityType="Self.PAG_CAT_PROVEEDORES" />
+    <EntitySet Name="PAG_COLUMNA_USUARIO" EntityType="Self.PAG_COLUMNA_USUARIO" />
+    <EntitySet Name="PAG_FLUJO_EFECTIVO" EntityType="Self.PAG_FLUJO_EFECTIVO" />
+    <EntitySet Name="PAG_FLUJO_EGRESO_BANCOS" EntityType="Self.PAG_FLUJO_EGRESO_BANCOS" />
+    <EntitySet Name="PAG_FLUJO_INGRESO_BANCOS" EntityType="Self.PAG_FLUJO_INGRESO_BANCOS" />
+    <EntitySet Name="PAG_FLUJO_INGRESO_OTROS" EntityType="Self.PAG_FLUJO_INGRESO_OTROS" />
+    <EntitySet Name="PAG_PROGRA_PAGOS_DETALLE" EntityType="Self.PAG_PROGRA_PAGOS_DETALLE" />
+    <EntitySet Name="PAG_PROVEEDOR_CUENTA" EntityType="Self.PAG_PROVEEDOR_CUENTA" />
+    <EntitySet Name="PAG_SELECT_PRUEBA" EntityType="Self.PAG_SELECT_PRUEBA" />
+    <EntitySet Name="PAG_TRANSFERENCIAS_BANCARIAS" EntityType="Self.PAG_TRANSFERENCIAS_BANCARIAS" />
+    <AssociationSet Name="FK_PAG_COLUMNA_USUARIO_PAG_COLUMNA" Association="Self.FK_PAG_COLUMNA_USUARIO_PAG_COLUMNA">
+      <End Role="PAG_COLUMNA" EntitySet="PAG_COLUMNA" />
+      <End Role="PAG_COLUMNA_USUARIO" EntitySet="PAG_COLUMNA_USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PAG_FLUJO_INGRESO_BANCOS_PAG_LOTE_PAGO" Association="Self.FK_PAG_FLUJO_INGRESO_BANCOS_PAG_LOTE_PAGO">
+      <End Role="PAG_LOTE_PAGO" EntitySet="PAG_LOTE_PAGO" />
+      <End Role="PAG_FLUJO_INGRESO_BANCOS" EntitySet="PAG_FLUJO_INGRESO_BANCOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PAG_PROGRA_PAGOS_DETALLE_PAG_LOTE_PAGO" Association="Self.FK_PAG_PROGRA_PAGOS_DETALLE_PAG_LOTE_PAGO">
+      <End Role="PAG_LOTE_PAGO" EntitySet="PAG_LOTE_PAGO" />
+      <End Role="PAG_PROGRA_PAGOS_DETALLE" EntitySet="PAG_PROGRA_PAGOS_DETALLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PAG_TRANSFERENCIAS_BANCARIAS_PAG_LOTE_PAGO" Association="Self.FK_PAG_TRANSFERENCIAS_BANCARIAS_PAG_LOTE_PAGO">
+      <End Role="PAG_LOTE_PAGO" EntitySet="PAG_LOTE_PAGO" />
+      <End Role="PAG_TRANSFERENCIAS_BANCARIAS" EntitySet="PAG_TRANSFERENCIAS_BANCARIAS" />
+    </AssociationSet>
+    <FunctionImport Name="DEL_PROG_PAGOS_SP" ReturnType="Collection(Int32)">
+      <Parameter Name="idPadre" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="INS_AGRUPADOR_PROVEEDOR_SP" ReturnType="Collection(PagosModel.INS_AGRUPADOR_PROVEEDOR_SP_Result)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+      <Parameter Name="idAgrupador" Mode="In" Type="Decimal" />
+      <Parameter Name="idProveedor" Mode="In" Type="Int32" />
+      <Parameter Name="ordenAgruProveedor" Mode="In" Type="Int32" />
+      <Parameter Name="datosAgrupadores" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="INS_BANCOS_TRANSFERENCIAS_SP" ReturnType="Collection(PagosModel.INS_BANCOS_TRANSFERENCIAS_SP_Result)">
+      <Parameter Name="id_lote_pago" Mode="In" Type="Decimal" />
+      <Parameter Name="datosIngreso" Mode="In" Type="String" />
+      <Parameter Name="datosTransferencias" Mode="In" Type="String" />
+      <Parameter Name="datosTotales" Mode="In" Type="String" />
+      <Parameter Name="caja" Mode="In" Type="Decimal" />
+      <Parameter Name="cobranzaEsperada" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="INS_LOTE_SP" ReturnType="Collection(Int32)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+      <Parameter Name="idUsuario" Mode="In" Type="Decimal" />
+      <Parameter Name="nombreLote" Mode="In" Type="String" />
+      <Parameter Name="totalPagar" Mode="In" Type="Decimal" />
+      <Parameter Name="carteraVencida" Mode="In" Type="Decimal" />
+      <Parameter Name="noIncluido" Mode="In" Type="Decimal" />
+      <Parameter Name="noPagable" Mode="In" Type="Decimal" />
+      <Parameter Name="reprogramado" Mode="In" Type="Decimal" />
+      <Parameter Name="estatus" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="INS_PAG_PROG_PAGOS_SP" ReturnType="Collection(Decimal)">
+      <Parameter Name="idUsuario" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="INS_PAGOS_INGRESO_EGRESO_OTROS_SP" ReturnType="Collection(PagosModel.INS_PAGOS_INGRESO_EGRESO_OTROS_SP_Result)">
+      <Parameter Name="idUsuario" Mode="In" Type="Decimal" />
+      <Parameter Name="datosIngreso" Mode="In" Type="String" />
+      <Parameter Name="datosTransferencias" Mode="In" Type="String" />
+      <Parameter Name="datosTotales" Mode="In" Type="String" />
+      <Parameter Name="caja" Mode="In" Type="Decimal" />
+      <Parameter Name="cobranzaEsperada" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="INS_PROG_PAGOS_SP" ReturnType="Collection(PagosModel.INS_PROG_PAGOS_SP_Result)">
+      <Parameter Name="idUsuario" Mode="In" Type="Decimal" />
+      <Parameter Name="idPadre" Mode="In" Type="Decimal" />
+      <Parameter Name="datosIngreso" Mode="In" Type="String" />
+      <Parameter Name="datosTransferencias" Mode="In" Type="String" />
+      <Parameter Name="datosTotales" Mode="In" Type="String" />
+      <Parameter Name="caja" Mode="In" Type="Decimal" />
+      <Parameter Name="cobranzaEsperada" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="INS_PROG_PAGOS_SP_Respaldo" ReturnType="Collection(PagosModel.INS_PROG_PAGOS_SP_Respaldo_Result)">
+      <Parameter Name="idUsuario" Mode="In" Type="Decimal" />
+      <Parameter Name="idPadre" Mode="In" Type="Decimal" />
+      <Parameter Name="datosIngreso" Mode="In" Type="String" />
+      <Parameter Name="datosTransferencias" Mode="In" Type="String" />
+      <Parameter Name="datosTotales" Mode="In" Type="String" />
+      <Parameter Name="caja" Mode="In" Type="Decimal" />
+      <Parameter Name="cobranzaEsperada" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="INS_PROG_PAGOS_SP_v2" ReturnType="Collection(String)">
+      <Parameter Name="idUsuario" Mode="In" Type="Decimal" />
+      <Parameter Name="idPadre" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="INS_PROG_PAGOS_SP5">
+      <Parameter Name="idUsuario" Mode="In" Type="Decimal" />
+      <Parameter Name="idPadre" Mode="In" Type="Decimal" />
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_AGRUPADORES_PROVEEDOR_SP" ReturnType="Collection(PagosModel.SEL_AGRUPADORES_PROVEEDOR_SP_Result)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_AGRUPADORES_SP" ReturnType="Collection(PagosModel.SEL_AGRUPADORES_SP_Result)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_BUSCA_SERVIDOR_SP" ReturnType="Collection(PagosModel.SEL_BUSCA_SERVIDOR_SP_Result)">
+      <Parameter Name="emp_nombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_CUENTAS_EGRESOS_SP" ReturnType="Collection(PagosModel.SEL_CUENTAS_EGRESOS_SP_Result)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+      <Parameter Name="numLote" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_CUENTAS_INGRESOS_SP" ReturnType="Collection(PagosModel.SEL_CUENTAS_INGRESOS_SP_Result)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+      <Parameter Name="numLote" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_CUENTAS_SP" ReturnType="Collection(Int32)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_CUENTAS_TRANSFERENCIAS_SP" ReturnType="Collection(PagosModel.SEL_CUENTAS_TRANSFERENCIAS_SP_Result)">
+      <Parameter Name="id_lote_pago" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_EMPLEADO_SP" ReturnType="Collection(PagosModel.SEL_EMPLEADO_SP_Result)">
+      <Parameter Name="idEmpleado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_EMPRESAS_SP" ReturnType="Collection(PagosModel.SEL_EMPRESAS_SP_Result)">
+      <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_ENCABEZADO_SP" ReturnType="Collection(PagosModel.SEL_ENCABEZADO_SP_Result)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_INGRESO_OTROS_SP" ReturnType="Collection(PagosModel.SEL_INGRESO_OTROS_SP_Result)">
+      <Parameter Name="id_lote_pago" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_LOTE_DETALLE_SP" ReturnType="Collection(PagosModel.SEL_LOTE_DETALLE_SP_Result)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+      <Parameter Name="idUsuario" Mode="In" Type="Decimal" />
+      <Parameter Name="idLotePago" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_LOTE_SP" ReturnType="Collection(PagosModel.SEL_LOTE_SP_Result)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+      <Parameter Name="idUsuario" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_LOTE_SP2" ReturnType="Collection(PagosModel.SEL_LOTE_SP2_Result)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+      <Parameter Name="idUsuario" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_PROG_PAGOS_GUARDADA_SP" ReturnType="Collection(PagosModel.SEL_PROG_PAGOS_GUARDADA_SP_Result)">
+      <Parameter Name="idPadre" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_PROGRAMACION_PAGOS_POLIZAS_SP" ReturnType="Collection(String)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_PROGRAMACION_PAGOS_SP" ReturnType="Collection(PagosModel.SEL_PROGRAMACION_PAGOS_SP_Result)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_PROGRAMACION_PAGOS_SP_Respaldo" ReturnType="Collection(PagosModel.SEL_PROGRAMACION_PAGOS_SP_Respaldo_Result)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_PROGRAMACION_PAGOS_SP_T" ReturnType="Collection(String)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_PROGRAMACION_PAGOS_SP5" ReturnType="Collection(PagosModel.SEL_PROGRAMACION_PAGOS_SP5_Result)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_PROGRAMACION_PAGOS_SP5_1" ReturnType="Collection(PagosModel.SEL_PROGRAMACION_PAGOS_SP5_1_Result)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_PROVEEDORES_CTA_PAGADORA_SP" ReturnType="Collection(PagosModel.SEL_PROVEEDORES_CTA_PAGADORA_SP_Result)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_PROVEEDORES_SP" ReturnType="Collection(PagosModel.SEL_PROVEEDORES_SP_Result)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_TOTAL_BANCOS_DINAMICO_SP" ReturnType="Collection(String)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_TOTAL_BANCOS_SP" ReturnType="Collection(PagosModel.SEL_TOTAL_BANCOS_SP_Result)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_TOTAL_BANCOS_SP_Respaldo" ReturnType="Collection(PagosModel.SEL_TOTAL_BANCOS_SP_Respaldo_Result)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SEL_USUARIOS_SP" ReturnType="Collection(PagosModel.SEL_USUARIOS_SP_Result)">
+      <Parameter Name="idEmpresa" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(PagosModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(PagosModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="INS_AGRUPADOR_PROVEEDOR_SP_Result">
+    <Property Type="Decimal" Name="idAgrupador" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="idProveedor" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="orden" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="INS_BANCOS_TRANSFERENCIAS_SP_Result">
+    <Property Type="Decimal" Name="caja" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="cobranzaEsperada" Nullable="true" Precision="18" Scale="5" />
+  </ComplexType>
+  <ComplexType Name="INS_PAGOS_INGRESO_EGRESO_OTROS_SP_Result">
+    <Property Type="Decimal" Name="id" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cuenta" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="saldo" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="disponible" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="String" Name="ingreso" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="egreso" Nullable="true" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="INS_PROG_PAGOS_SP_Result">
+    <Property Type="Decimal" Name="caja" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="cobranzaEsperada" Nullable="true" Precision="18" Scale="5" />
+  </ComplexType>
+  <ComplexType Name="INS_PROG_PAGOS_SP_Respaldo_Result">
+    <Property Type="Decimal" Name="caja" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="cobranzaEsperada" Nullable="true" Precision="18" Scale="5" />
+  </ComplexType>
+  <ComplexType Name="SEL_AGRUPADORES_PROVEEDOR_SP_Result">
+    <Property Type="Decimal" Name="idAgrupador" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="nombreAgrupador" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="idProveedor" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="nombreProveedor" Nullable="false" MaxLength="52" />
+    <Property Type="Int32" Name="ordenAgruProveedor" Nullable="true" />
+    <Property Type="Int32" Name="ordenCatAgrupador" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SEL_AGRUPADORES_SP_Result">
+    <Property Type="Decimal" Name="pca_idAgrupador" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="pca_idEmpresa" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="pca_nombre" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="pca_descripcion" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="pca_orden" Nullable="true" />
+    <Property Type="String" Name="pca_estatus" Nullable="true" MaxLength="5" />
+  </ComplexType>
+  <ComplexType Name="SEL_BUSCA_SERVIDOR_SP_Result">
+    <Property Type="String" Name="nombre_base" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ip_servidor" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SEL_CUENTAS_EGRESOS_SP_Result">
+    <Property Type="Int32" Name="id" Nullable="true" />
+    <Property Type="String" Name="banco" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cuenta" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="saldo" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="aTransferir" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="total" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="excedente" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="totalPagar" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="saldoIngreso" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Int32" Name="ingreso" Nullable="true" />
+    <Property Type="Int32" Name="egreso" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SEL_CUENTAS_INGRESOS_SP_Result">
+    <Property Type="Int32" Name="id" Nullable="true" />
+    <Property Type="String" Name="banco" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cuenta" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="saldo" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="disponible" Nullable="true" Precision="18" Scale="5" />
+  </ComplexType>
+  <ComplexType Name="SEL_CUENTAS_TRANSFERENCIAS_SP_Result">
+    <Property Type="String" Name="ctaOrigen" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ctaDestino" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="importe" Nullable="false" Precision="18" Scale="5" />
+  </ComplexType>
+  <ComplexType Name="SEL_EMPLEADO_SP_Result">
+    <Property Type="Int32" Name="idusuario" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="172" />
+    <Property Type="String" Name="correo" Nullable="true" MaxLength="130" />
+    <Property Type="Int32" Name="iddepartamento" Nullable="false" />
+    <Property Type="Int32" Name="idsucursal" Nullable="false" />
+    <Property Type="Int32" Name="emp_idempresa" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SEL_EMPRESAS_SP_Result">
+    <Property Type="Int32" Name="emp_idempresa" Nullable="false" />
+    <Property Type="String" Name="emp_nombre" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="emp_nombrecto" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="emp_estatus" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SEL_ENCABEZADO_SP_Result">
+    <Property Type="Decimal" Name="saldoBanco" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="saldoCaja" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="cobranzaEsperada" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="flujoEfectivo" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="disponible" Nullable="true" Precision="20" Scale="2" />
+    <Property Type="String" Name="empNombre" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="SEL_INGRESO_OTROS_SP_Result">
+    <Property Type="Decimal" Name="pio_caja" Nullable="false" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="pio_cobranzaEsperada" Nullable="false" Precision="18" Scale="5" />
+  </ComplexType>
+  <ComplexType Name="SEL_LOTE_DETALLE_SP_Result">
+    <Property Type="Decimal" Name="idLotePago" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="id" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="idProveedor" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="polTipo" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="annio" Nullable="false" Precision="4" Scale="0" />
+    <Property Type="Decimal" Name="polMes" Nullable="false" Precision="2" Scale="0" />
+    <Property Type="Decimal" Name="polConsecutivo" Nullable="false" Precision="10" Scale="0" />
+    <Property Type="Decimal" Name="polMovimiento" Nullable="false" Precision="10" Scale="0" />
+    <Property Type="DateTime" Name="polFechaOperacion" Nullable="true" Precision="23" />
+    <Property Type="String" Name="cuenta" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="proveedor" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="documento" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="tipoDocto" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cartera" Nullable="true" MaxLength="150" />
+    <Property Type="Decimal" Name="monto" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="saldo" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="saldoPorcentaje" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="String" Name="moneda" Nullable="true" MaxLength="2" />
+    <Property Type="DateTime" Name="fechaVencimiento" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fechaPromesaPago" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fechaRecepcion" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fechaFactura" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ordenCompra" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="idEstatus" Nullable="true" MaxLength="3" />
+    <Property Type="String" Name="estatus" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="anticipo" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="anticipoAplicado" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="proveedorBloqueado" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ordenBloqueada" Nullable="true" MaxLength="5" />
+    <Property Type="Decimal" Name="diasCobro" Nullable="true" Precision="3" Scale="0" />
+    <Property Type="String" Name="aprobado" Nullable="true" MaxLength="5" />
+    <Property Type="Decimal" Name="contReprog" Nullable="true" Precision="3" Scale="0" />
+    <Property Type="String" Name="documentoPagable" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="aPagar" Nullable="true" />
+    <Property Type="String" Name="nombreAgrupador" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="ordenAgrupador" Nullable="false" />
+    <Property Type="Int32" Name="ordenProveedor" Nullable="false" />
+    <Property Type="String" Name="cuentaProveedor" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SEL_LOTE_SP_Result">
+    <Property Type="Decimal" Name="idLotePago" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="idEmpresa" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="idUsuario" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="fecha" Nullable="false" Precision="23" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="totalPagar" Nullable="false" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="carteraVencida" Nullable="false" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="noIncluido" Nullable="false" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="noPagable" Nullable="false" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="reprogramado" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Int16" Name="estatus" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SEL_LOTE_SP2_Result">
+    <Property Type="Decimal" Name="idEmpresa" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="idUsuario" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="fecha" Nullable="false" Precision="23" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="totalPagar" Nullable="false" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="carteraVencida" Nullable="false" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="noIncluido" Nullable="false" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="noPagable" Nullable="false" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="reprogramado" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Int16" Name="estatus" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SEL_PROG_PAGOS_GUARDADA_SP_Result">
+    <Property Type="Decimal" Name="idPadre" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="idUsuario" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
+    <Property Type="Decimal" Name="idProveedor" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="polTipo" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="annio" Nullable="false" Precision="4" Scale="0" />
+    <Property Type="Decimal" Name="polMes" Nullable="false" Precision="2" Scale="0" />
+    <Property Type="Decimal" Name="polConsecutivo" Nullable="false" Precision="10" Scale="0" />
+    <Property Type="Decimal" Name="polMovimiento" Nullable="false" Precision="10" Scale="0" />
+    <Property Type="DateTime" Name="polFechaOperacion" Nullable="true" Precision="23" />
+    <Property Type="String" Name="cuenta" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="proveedor" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="documento" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="tipo" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="tipoDocto" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cartera" Nullable="true" MaxLength="150" />
+    <Property Type="Decimal" Name="monto" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="saldo" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="saldoPorcentaje" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="String" Name="moneda" Nullable="true" MaxLength="2" />
+    <Property Type="DateTime" Name="fechaVencimiento" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fechaPromesaPago" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fechaRecepcion" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fechaFactura" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ordenCompra" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="idEstatus" Nullable="true" MaxLength="3" />
+    <Property Type="String" Name="estatus" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="anticipo" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="anticipoAplicado" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="proveedorBloqueado" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ordenBloqueada" Nullable="true" MaxLength="5" />
+    <Property Type="Decimal" Name="diasCobro" Nullable="true" Precision="3" Scale="0" />
+    <Property Type="String" Name="aprobado" Nullable="true" MaxLength="5" />
+    <Property Type="Decimal" Name="contReprog" Nullable="true" Precision="3" Scale="0" />
+    <Property Type="String" Name="documentoPagable" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="aPagar" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SEL_PROGRAMACION_PAGOS_SP_Result">
+    <Property Type="String" Name="polTipo" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="annio" Nullable="true" />
+    <Property Type="Int32" Name="polMes" Nullable="true" />
+    <Property Type="Int32" Name="polConsecutivo" Nullable="true" />
+    <Property Type="Int32" Name="polMovimiento" Nullable="true" />
+    <Property Type="String" Name="polFechaOperacion" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="documento" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="cuenta" Nullable="false" MaxLength="19" />
+    <Property Type="Int32" Name="idProveedor" Nullable="true" />
+    <Property Type="String" Name="proveedor" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="tipoDocto" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cartera" Nullable="true" MaxLength="150" />
+    <Property Type="Decimal" Name="monto" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="saldo" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="saldoPorcentaje" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="String" Name="moneda" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="fechaVencimiento" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="fechaPromesaPago" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="fechaRecepcion" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="fechaFactura" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="ordenCompra" Nullable="false" MaxLength="18" />
+    <Property Type="String" Name="estatus" Nullable="false" MaxLength="18" />
+    <Property Type="String" Name="idEstatus" Nullable="false" MaxLength="1" />
+    <Property Type="Int32" Name="anticipo" Nullable="false" />
+    <Property Type="Int32" Name="anticipoAplicado" Nullable="false" />
+    <Property Type="String" Name="proveedorBloqueado" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="ordenBloqueada" Nullable="false" MaxLength="5" />
+    <Property Type="Int32" Name="diasCobro" Nullable="false" />
+    <Property Type="Int32" Name="aprobado" Nullable="false" />
+    <Property Type="Int32" Name="contReprog" Nullable="false" />
+    <Property Type="String" Name="documentoPagable" Nullable="false" MaxLength="4" />
+    <Property Type="Int32" Name="aPagar" Nullable="true" />
+    <Property Type="String" Name="nombreAgrupador" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ordenAgrupador" Nullable="true" />
+    <Property Type="Int32" Name="ordenProveedor" Nullable="true" />
+    <Property Type="String" Name="cuentaPagadora" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SEL_PROGRAMACION_PAGOS_SP_Respaldo_Result">
+    <Property Type="String" Name="polTipo" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="annio" Nullable="false" MaxLength="4" />
+    <Property Type="Decimal" Name="polMes" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="polConsecutivo" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="polMovimiento" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="polFechaOperacion" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="documento" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="cuenta" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="idProveedor" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="proveedor" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="tipoDocto" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="cartera" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="monto" Nullable="true" Precision="19" Scale="5" />
+    <Property Type="Decimal" Name="saldo" Nullable="true" Precision="38" Scale="5" />
+    <Property Type="Decimal" Name="saldoPorcentaje" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="String" Name="moneda" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="fechaVencimiento" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="fechaPromesaPago" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="fechaRecepcion" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="fechaFactura" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ordenCompra" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="estatus" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="idEstatus" Nullable="false" />
+    <Property Type="Int32" Name="anticipo" Nullable="true" />
+    <Property Type="Int32" Name="anticipoAplicado" Nullable="true" />
+    <Property Type="String" Name="proveedorBloqueado" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="ordenBloqueada" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="diasCobro" Nullable="false" MaxLength="6" />
+    <Property Type="String" Name="aprobado" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="contReprog" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="documentoPagable" Nullable="false" MaxLength="5" />
+    <Property Type="Int32" Name="aPagar" Nullable="false" />
+    <Property Type="String" Name="nombreAgrupador" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="ordenAgrupador" Nullable="false" />
+    <Property Type="Int32" Name="ordenProveedor" Nullable="false" />
+    <Property Type="String" Name="cuentaPagadora" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SEL_PROGRAMACION_PAGOS_SP5_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="polTipo" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="polAnnio" Nullable="true" Precision="4" Scale="0" />
+    <Property Type="Decimal" Name="polMes" Nullable="true" Precision="2" Scale="0" />
+    <Property Type="Decimal" Name="polConsecutivo" Nullable="true" Precision="10" Scale="0" />
+    <Property Type="Decimal" Name="polMovimiento" Nullable="true" Precision="10" Scale="0" />
+    <Property Type="DateTime" Name="polFechaOperacion" Nullable="true" Precision="23" />
+    <Property Type="String" Name="documento" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="cuenta" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="idProveedor" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="proveedor" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="tipoDocto" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cartera" Nullable="true" MaxLength="150" />
+    <Property Type="Decimal" Name="monto" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="saldo" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="saldoPorcentaje" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="String" Name="moneda" Nullable="true" MaxLength="2" />
+    <Property Type="DateTime" Name="fechaVencimiento" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fechaPromesaPago" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fechaRecepcion" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fechaFactura" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ordenCompra" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="estatus" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="idEstatus" Nullable="true" MaxLength="3" />
+    <Property Type="Int32" Name="anticipo" Nullable="true" />
+    <Property Type="Int32" Name="anticipoAplicado" Nullable="true" />
+    <Property Type="String" Name="proveedorBloqueado" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ordenBloqueada" Nullable="true" MaxLength="5" />
+    <Property Type="Decimal" Name="diasCobro" Nullable="true" Precision="3" Scale="0" />
+    <Property Type="String" Name="aprobado" Nullable="true" MaxLength="5" />
+    <Property Type="Decimal" Name="contReprog" Nullable="true" Precision="3" Scale="0" />
+    <Property Type="String" Name="documentoPagable" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="SEL_PROGRAMACION_PAGOS_SP5_1_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="polTipo" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="polAnnio" Nullable="true" Precision="4" Scale="0" />
+    <Property Type="Decimal" Name="polMes" Nullable="true" Precision="2" Scale="0" />
+    <Property Type="Decimal" Name="polConsecutivo" Nullable="true" Precision="10" Scale="0" />
+    <Property Type="Decimal" Name="polMovimiento" Nullable="true" Precision="10" Scale="0" />
+    <Property Type="DateTime" Name="polFechaOperacion" Nullable="true" Precision="23" />
+    <Property Type="String" Name="documento" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="cuenta" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="idProveedor" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="proveedor" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="tipoDocto" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cartera" Nullable="true" MaxLength="150" />
+    <Property Type="Decimal" Name="monto" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="saldo" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Decimal" Name="saldoPorcentaje" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="String" Name="moneda" Nullable="true" MaxLength="2" />
+    <Property Type="DateTime" Name="fechaVencimiento" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fechaPromesaPago" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fechaRecepcion" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fechaFactura" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ordenCompra" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="estatus" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="idEstatus" Nullable="true" MaxLength="3" />
+    <Property Type="Int32" Name="anticipo" Nullable="true" />
+    <Property Type="Int32" Name="anticipoAplicado" Nullable="true" />
+    <Property Type="String" Name="proveedorBloqueado" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ordenBloqueada" Nullable="true" MaxLength="5" />
+    <Property Type="Decimal" Name="diasCobro" Nullable="true" Precision="3" Scale="0" />
+    <Property Type="String" Name="aprobado" Nullable="true" MaxLength="5" />
+    <Property Type="Decimal" Name="contReprog" Nullable="true" Precision="3" Scale="0" />
+    <Property Type="String" Name="documentoPagable" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="SEL_PROVEEDORES_CTA_PAGADORA_SP_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Decimal" Name="idProveedor" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="nombreProveedor" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="idCuentaPagadora" Nullable="true" />
+    <Property Type="String" Name="cuentaPagadora" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SEL_PROVEEDORES_SP_Result">
+    <Property Type="Int32" Name="idProveedor" Nullable="false" />
+    <Property Type="String" Name="nomProveedor" Nullable="false" MaxLength="31" />
+  </ComplexType>
+  <ComplexType Name="SEL_TOTAL_BANCOS_SP_Result">
+    <Property Type="String" Name="cuentaPagadora" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="sumaSaldo" Nullable="true" Precision="38" Scale="5" />
+  </ComplexType>
+  <ComplexType Name="SEL_TOTAL_BANCOS_SP_Respaldo_Result">
+    <Property Type="String" Name="cuentaPagadora" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="sumaSaldo" Nullable="true" Precision="38" Scale="5" />
+  </ComplexType>
+  <ComplexType Name="SEL_USUARIOS_SP_Result">
+    <Property Type="Int32" Name="usu_idusuario" Nullable="false" />
+    <Property Type="Int32" Name="suc_idsucursal" Nullable="false" />
+    <Property Type="Int32" Name="dep_iddepartamento" Nullable="false" />
+    <Property Type="String" Name="usu_nombreusu" Nullable="true" MaxLength="35" />
+    <Property Type="String" Name="usu_paterno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="usu_materno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="usu_nombre" Nullable="true" MaxLength="70" />
+    <Property Type="Int32" Name="pto_idpuesto" Nullable="false" />
+    <Property Type="Int32" Name="usu_estatus" Nullable="false" />
+    <Property Type="Int32" Name="emp_idempresa" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,823 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PagosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Pagos.dbo.Error' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Error">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="componente" Type="nvarchar" MaxLength="500" />
+    <Property Name="parametros" Type="nvarchar" MaxLength="500" />
+    <Property Name="mensaje" Type="nvarchar(max)" />
+    <Property Name="fecha" Type="smalldatetime" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Pagos.dbo.PAG_AGRUPADOR_PROVEEDOR' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="PAG_AGRUPADOR_PROVEEDOR">
+    <Key>
+      <PropertyRef Name="pca_idAgrupador" />
+      <PropertyRef Name="pap_idProveedor" />
+    </Key>
+    <Property Name="pca_idAgrupador" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pap_idProveedor" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pap_orden" Type="int" />
+  </EntityType>
+  <EntityType Name="PAG_CAT_AGRUPADORES">
+    <Key>
+      <PropertyRef Name="pca_idAgrupador" />
+    </Key>
+    <Property Name="pca_idAgrupador" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pca_idEmpresa" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pca_nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pca_descripcion" Type="nvarchar" MaxLength="150" />
+    <Property Name="pca_orden" Type="int" />
+    <Property Name="pca_estatus" Type="nvarchar" MaxLength="5" />
+    <Property Name="pca_ordenVarchar" Type="varchar" MaxLength="2" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Pagos.dbo.PAG_CAT_PROVEEDORES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="PAG_CAT_PROVEEDORES">
+    <Key>
+      <PropertyRef Name="pcp_id" />
+      <PropertyRef Name="pcp_idProveedor" />
+    </Key>
+    <Property Name="pcp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pcp_idEmpresa" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="pcp_idProveedor" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pcp_nombreProveedor" Type="nvarchar" MaxLength="150" />
+    <Property Name="pcp_bancoPagador" Type="nvarchar" MaxLength="50" />
+    <Property Name="pcp_cuentaPagadora" Type="nvarchar" MaxLength="50" />
+    <Property Name="pcp_claveCuentaPagadora" Type="nvarchar" MaxLength="50" />
+    <Property Name="pcp_bancoProveedor" Type="nvarchar" MaxLength="50" />
+    <Property Name="pcp_cuentaProveedor" Type="nvarchar" MaxLength="50" />
+    <Property Name="pcp_claveCuentaProveedor" Type="nvarchar" MaxLength="50" />
+    <Property Name="pcp_tipoProveedor" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PAG_COLUMNA">
+    <Key>
+      <PropertyRef Name="pac_idColumna" />
+    </Key>
+    <Property Name="pac_idColumna" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pac_columna" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="pac_label" Type="nvarchar" MaxLength="100" />
+    <Property Name="pac_width" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Pagos.dbo.PAG_COLUMNA_USUARIO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="PAG_COLUMNA_USUARIO">
+    <Key>
+      <PropertyRef Name="pcu_idUsuario" />
+      <PropertyRef Name="pac_idColumna" />
+    </Key>
+    <Property Name="pcu_idUsuario" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pac_idColumna" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pcu_orden" Type="int" />
+    <Property Name="pcu_estatus" Type="nvarchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="PAG_ESCENARIOS_PAGOS">
+    <Key>
+      <PropertyRef Name="pep_idEscenarios" />
+    </Key>
+    <Property Name="pep_idEscenarios" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pep_pagoDirectoPlanta" Type="bit" Nullable="false" />
+    <Property Name="pep_pagoDirectoBanco" Type="bit" Nullable="false" />
+    <Property Name="ptrp_idtipoReferenciaPlanta" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ptrb_idtipoReferenciaBancos" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAG_ESTATUS_LOTE">
+    <Key>
+      <PropertyRef Name="pel_id_estatus_pago" />
+    </Key>
+    <Property Name="pel_id_estatus_pago" Type="int" Nullable="false" />
+    <Property Name="pel_descripcion" Type="nchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAG_ESTATUS_TRANSFERENCIAS">
+    <Key>
+      <PropertyRef Name="pet_id_estatus_transferencias" />
+    </Key>
+    <Property Name="pet_id_estatus_transferencias" Type="smallint" Nullable="false" />
+    <Property Name="pet_descripcion" Type="nchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAG_FLUJO_EGRESO_BANCOS">
+    <Key>
+      <PropertyRef Name="peb_id" />
+    </Key>
+    <Property Name="peb_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pal_id_lote_pago" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="peb_id_cuenta" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="peb_saldo" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="peb_aTransferir" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="peb_total" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="peb_excedente" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="peb_cuentaContable" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PAG_FLUJO_INGRESO_BANCOS">
+    <Key>
+      <PropertyRef Name="pib_id" />
+    </Key>
+    <Property Name="pib_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pal_id_lote_pago" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pib_id_cuenta" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pib_saldo" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="pib_disponible" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="pib_cuentaContable" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PAG_FLUJO_INGRESO_OTROS">
+    <Key>
+      <PropertyRef Name="pio_id" />
+    </Key>
+    <Property Name="pio_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pal_id_lote_pago" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pio_caja" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="pio_cobranzaEsperada" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAG_LOTE_PAGO">
+    <Key>
+      <PropertyRef Name="pal_id_lote_pago" />
+    </Key>
+    <Property Name="pal_id_lote_pago" Type="numeric" Precision="18" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pal_id_empresa" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pal_id_usuario" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pal_fecha" Type="datetime" Nullable="false" />
+    <Property Name="pal_nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pal_estatus" Type="smallint" Nullable="false" />
+    <Property Name="pal_esAplicacionDirecta" Type="smallint" Nullable="false" />
+    <Property Name="pal_cifraControl" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="pal_id_tipoLotePago" Type="int" />
+  </EntityType>
+  <EntityType Name="PAG_PARAMETROS">
+    <Key>
+      <PropertyRef Name="ppa_idParametro" />
+    </Key>
+    <Property Name="ppa_idParametro" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ppa_nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ppa_idTipo" Type="int" Nullable="false" />
+    <Property Name="ppa_valor" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ppa_idEstatus" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAG_PARAMETROS_EMPRESAS">
+    <Key>
+      <PropertyRef Name="ppe_id_parametro" />
+    </Key>
+    <Property Name="ppe_id_parametro" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ppe_id_empresa" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="ppe_pago_directo" Type="nvarchar" MaxLength="2" />
+    <Property Name="ppe_monto_minimo" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ppe_nombreCorto" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PAG_PROGRA_PAGOS_BPRO">
+    <Key>
+      <PropertyRef Name="pbp_id" />
+    </Key>
+    <Property Name="pbp_id_lote_pago" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="pbp_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pbp_idProveedor" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="pbp_polTipo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pbp_polAnnio" Type="decimal" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="pbp_polMes" Type="decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="pbp_polConsecutivo" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="pbp_polMovimiento" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="pbp_polFechaOperacion" Type="datetime" />
+    <Property Name="pbp_cuenta" Type="nvarchar" MaxLength="50" />
+    <Property Name="pbp_proveedor" Type="nvarchar" MaxLength="150" />
+    <Property Name="pbp_documento" Type="nvarchar" MaxLength="100" />
+    <Property Name="pbp_tipo" Type="nvarchar" MaxLength="20" />
+    <Property Name="pbp_tipoDocto" Type="nvarchar" MaxLength="50" />
+    <Property Name="pbp_cartera" Type="nvarchar" MaxLength="150" />
+    <Property Name="pbp_monto" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="pbp_saldo" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="pbp_saldoPorcentaje" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="pbp_moneda" Type="nvarchar" MaxLength="2" />
+    <Property Name="pbp_fechaVencimiento" Type="datetime" />
+    <Property Name="pbp_fechaPromesaPago" Type="datetime" />
+    <Property Name="pbp_fechaRecepcion" Type="datetime" />
+    <Property Name="pbp_fechaFactura" Type="datetime" />
+    <Property Name="pbp_ordenCompra" Type="nvarchar" MaxLength="30" />
+    <Property Name="pbp_idEstatus" Type="nvarchar" MaxLength="3" />
+    <Property Name="pbp_estatus" Type="nvarchar" MaxLength="100" />
+    <Property Name="pbp_anticipo" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="pbp_anticipoAplicado" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="pbp_annio" Type="decimal" Precision="4" Scale="0" />
+    <Property Name="pbp_proveedorBloqueado" Type="nvarchar" MaxLength="5" />
+    <Property Name="pbp_ordenBloqueada" Type="nvarchar" MaxLength="5" />
+    <Property Name="pbp_diasCobro" Type="decimal" Precision="3" Scale="0" />
+    <Property Name="pbp_aprobado" Type="nvarchar" MaxLength="5" />
+    <Property Name="pbp_contReprog" Type="decimal" Precision="3" Scale="0" />
+    <Property Name="pbp_documentoPagable" Type="nvarchar" MaxLength="10" />
+    <Property Name="pbp_aPagar" Type="int" />
+    <Property Name="pbp_nombreAgrupador" Type="nvarchar" MaxLength="50" />
+    <Property Name="pbp_ordenAgrupador" Type="int" />
+    <Property Name="pbp_ordenProveedor" Type="int" />
+    <Property Name="pbp_cuentaPagadora" Type="nvarchar" MaxLength="100" />
+    <Property Name="pbp_cuentaProveedor" Type="nvarchar" MaxLength="100" />
+    <Property Name="pbp_empresa" Type="int" />
+    <Property Name="pbp_fechaCreacionRegistro" Type="datetime" />
+    <Property Name="pbp_cuentaDestino" Type="varchar" MaxLength="500" />
+    <Property Name="pbp_seleccionable" Type="nvarchar" MaxLength="5" />
+    <Property Name="pbp_numeroSerie" Type="varchar" MaxLength="20" />
+    <Property Name="pbp_facturaProveedor" Type="varchar" MaxLength="50" />
+    <Property Name="pbp_consCartera" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="pbp_esBanco" Type="nvarchar" MaxLength="5" />
+    <Property Name="pbp_tipoCartera" Type="int" />
+    <Property Name="pbp_loteExterno" Type="int" />
+    <Property Name="pbp_convenioCIE" Type="varchar" MaxLength="10" />
+    <Property Name="pbp_autorizado" Type="int" />
+    <Property Name="pbp_cuentaDestinoArr" Type="varchar" MaxLength="500" />
+    <Property Name="No_CotizacionSISCO" Type="varchar" MaxLength="500" />
+    <Property Name="No_OrdenServicioSISCO" Type="varchar" MaxLength="500" />
+    <Property Name="Id_EstatusSISCO" Type="int" />
+    <Property Name="EstatusSISCO" Type="varchar" MaxLength="500" />
+    <Property Name="FechaFacturaSISCO" Type="datetime" />
+    <Property Name="OperacionSISCO" Type="varchar" MaxLength="500" />
+    <Property Name="FechaCargaCopade" Type="datetime" />
+    <Property Name="FechaRecepcionCopade" Type="datetime" />
+    <Property Name="pbp_obsGenerales" Type="varchar" MaxLength="500" />
+    <Property Name="EstatusDiasPago" Type="int" />
+  </EntityType>
+  <EntityType Name="PAG_PROGRA_PAGOS_DETALLE">
+    <Key>
+      <PropertyRef Name="pad_id" />
+    </Key>
+    <Property Name="pal_id_lote_pago" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pad_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pad_idProveedor" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="pad_polTipo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pad_polAnnio" Type="decimal" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="pad_polMes" Type="decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="pad_polConsecutivo" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="pad_polMovimiento" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="pad_polFechaOperacion" Type="datetime" />
+    <Property Name="pad_cuenta" Type="nvarchar" MaxLength="50" />
+    <Property Name="pad_proveedor" Type="nvarchar" MaxLength="150" />
+    <Property Name="pad_documento" Type="nvarchar" MaxLength="100" />
+    <Property Name="pad_tipo" Type="nvarchar" MaxLength="20" />
+    <Property Name="pad_tipoDocto" Type="nvarchar" MaxLength="50" />
+    <Property Name="pad_cartera" Type="nvarchar" MaxLength="150" />
+    <Property Name="pad_monto" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="pad_saldo" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="pad_saldoPorcentaje" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="pad_moneda" Type="nvarchar" MaxLength="2" />
+    <Property Name="pad_fechaVencimiento" Type="datetime" />
+    <Property Name="pad_fechaPromesaPago" Type="datetime" />
+    <Property Name="pad_fechaRecepcion" Type="datetime" />
+    <Property Name="pad_fechaFactura" Type="datetime" />
+    <Property Name="pad_ordenCompra" Type="nvarchar" MaxLength="30" />
+    <Property Name="pad_idEstatus" Type="nvarchar" MaxLength="3" />
+    <Property Name="pad_estatus" Type="nvarchar" MaxLength="100" />
+    <Property Name="pad_anticipo" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="pad_anticipoAplicado" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="pad_annio" Type="decimal" Precision="4" Scale="0" />
+    <Property Name="pad_proveedorBloqueado" Type="nvarchar" MaxLength="5" />
+    <Property Name="pad_ordenBloqueada" Type="nvarchar" MaxLength="5" />
+    <Property Name="pad_diasCobro" Type="decimal" Precision="3" Scale="0" />
+    <Property Name="pad_aprobado" Type="nvarchar" MaxLength="5" />
+    <Property Name="pad_contReprog" Type="decimal" Precision="3" Scale="0" />
+    <Property Name="pad_documentoPagable" Type="nvarchar" MaxLength="10" />
+    <Property Name="pad_aPagar" Type="int" />
+    <Property Name="pad_nombreAgrupador" Type="nvarchar" MaxLength="50" />
+    <Property Name="pad_ordenAgrupador" Type="int" />
+    <Property Name="pad_ordenProveedor" Type="int" />
+    <Property Name="pad_cuentaProveedor" Type="nvarchar" MaxLength="50" />
+    <Property Name="pad_cuentaDestino" Type="nvarchar" MaxLength="50" />
+    <Property Name="pad_seleccionable" Type="nvarchar" MaxLength="5" />
+    <Property Name="pad_numeroSerie" Type="varchar" MaxLength="20" />
+    <Property Name="pad_facturaProveedor" Type="nvarchar" MaxLength="50" />
+    <Property Name="pad_polReferencia" Type="nvarchar" MaxLength="30" />
+    <Property Name="pbp_consCartera" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="pad_bancoPagador" Type="nvarchar" MaxLength="100" />
+    <Property Name="pad_agrupamiento" Type="int" />
+    <Property Name="pad_convenioCIE" Type="varchar" MaxLength="10" />
+    <Property Name="pad_procesoBanco" Type="int" />
+    <Property Name="pad_idProveedorold" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="pad_estatus_proceso" Type="int" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Pagos.dbo.PAG_PROVEEDOR_BANCO_PAGADOR' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="PAG_PROVEEDOR_BANCO_PAGADOR">
+    <Key>
+      <PropertyRef Name="pbp_idProveedor" />
+      <PropertyRef Name="pbp_idBanco" />
+    </Key>
+    <Property Name="pbp_idEmpresa" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="pbp_idProveedor" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pbp_idBanco" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAG_REFERENCIA">
+    <Key>
+      <PropertyRef Name="pre_id_referencia" />
+    </Key>
+    <Property Name="pre_id_referencia" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pre_referencia" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="pre_tipo" Type="smallint" Nullable="false" />
+    <Property Name="pal_id_lote_pago" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pre_estatus" Type="smallint" Nullable="false" />
+    <Property Name="pad_idProveedor" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pad_agrupamiento" Type="int" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Pagos.dbo.PAG_REFERENCIA_DOCUMENTO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="PAG_REFERENCIA_DOCUMENTO">
+    <Key>
+      <PropertyRef Name="pre_id_referencia" />
+      <PropertyRef Name="pad_id" />
+      <PropertyRef Name="prd_estatus" />
+    </Key>
+    <Property Name="pre_id_referencia" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pad_id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="prd_estatus" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAG_TABLA_PASO_POLIZAS">
+    <Key>
+      <PropertyRef Name="tab_id" />
+    </Key>
+    <Property Name="tab_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pal_id_lote_pago" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pad_polTipo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pad_polAnnio" Type="decimal" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="pad_polMes" Type="decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="pad_polConsecutivo" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="pad_polMovimiento" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="pad_fechaPromesaPago" Type="datetime" />
+    <Property Name="pad_saldo" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="tab_revision" Type="nvarchar" MaxLength="1" />
+    <Property Name="pad_polReferencia" Type="nvarchar" MaxLength="30" />
+    <Property Name="pad_documento" Type="nvarchar" MaxLength="100" />
+    <Property Name="pad_agrupamiento" Type="int" />
+    <Property Name="pad_bancoPagador" Type="nvarchar" MaxLength="100" />
+    <Property Name="pad_bancoDestino" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PAG_TIPO_REFERENCIA_BANCOS">
+    <Key>
+      <PropertyRef Name="ptrb_idtipoReferenciaBancos" />
+    </Key>
+    <Property Name="ptrb_idtipoReferenciaBancos" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ptrb_nombre" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAG_TIPO_REFERENCIA_PLANTA">
+    <Key>
+      <PropertyRef Name="ptrp_idtipoReferenciaPlanta" />
+    </Key>
+    <Property Name="ptrp_idtipoReferenciaPlanta" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ptrp_nombre" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Pagos.dbo.PAG_TRANSFERENCIAS_BANCARIAS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="PAG_TRANSFERENCIAS_BANCARIAS">
+    <Key>
+      <PropertyRef Name="ptb_id" />
+      <PropertyRef Name="pal_id_lote_pago" />
+      <PropertyRef Name="ptb_id_cuenta_origen" />
+      <PropertyRef Name="ptb_id_cuenta_destino" />
+      <PropertyRef Name="ptb_importe" />
+      <PropertyRef Name="ptb_estatus" />
+    </Key>
+    <Property Name="ptb_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pal_id_lote_pago" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ptb_id_cuenta_origen" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ptb_id_cuenta_destino" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ptb_importe" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="ptb_estatus" Type="smallint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_PAG_COLUMNA_USUARIO_PAG_COLUMNA">
+    <End Role="PAG_COLUMNA" Type="Self.PAG_COLUMNA" Multiplicity="1" />
+    <End Role="PAG_COLUMNA_USUARIO" Type="Self.PAG_COLUMNA_USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAG_COLUMNA">
+        <PropertyRef Name="pac_idColumna" />
+      </Principal>
+      <Dependent Role="PAG_COLUMNA_USUARIO">
+        <PropertyRef Name="pac_idColumna" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PAG_ESCENARIOS_PAGOS_PAG_TIPO_REFERENCIA_BANCOS">
+    <End Role="PAG_TIPO_REFERENCIA_BANCOS" Type="Self.PAG_TIPO_REFERENCIA_BANCOS" Multiplicity="1" />
+    <End Role="PAG_ESCENARIOS_PAGOS" Type="Self.PAG_ESCENARIOS_PAGOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAG_TIPO_REFERENCIA_BANCOS">
+        <PropertyRef Name="ptrb_idtipoReferenciaBancos" />
+      </Principal>
+      <Dependent Role="PAG_ESCENARIOS_PAGOS">
+        <PropertyRef Name="ptrb_idtipoReferenciaBancos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PAG_ESCENARIOS_PAGOS_PAG_TIPO_REFERENCIA_PLANTA">
+    <End Role="PAG_TIPO_REFERENCIA_PLANTA" Type="Self.PAG_TIPO_REFERENCIA_PLANTA" Multiplicity="1" />
+    <End Role="PAG_ESCENARIOS_PAGOS" Type="Self.PAG_ESCENARIOS_PAGOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAG_TIPO_REFERENCIA_PLANTA">
+        <PropertyRef Name="ptrp_idtipoReferenciaPlanta" />
+      </Principal>
+      <Dependent Role="PAG_ESCENARIOS_PAGOS">
+        <PropertyRef Name="ptrp_idtipoReferenciaPlanta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PAG_FLUJO_INGRESO_BANCOS_PAG_LOTE_PAGO">
+    <End Role="PAG_LOTE_PAGO" Type="Self.PAG_LOTE_PAGO" Multiplicity="1" />
+    <End Role="PAG_FLUJO_INGRESO_BANCOS" Type="Self.PAG_FLUJO_INGRESO_BANCOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAG_LOTE_PAGO">
+        <PropertyRef Name="pal_id_lote_pago" />
+      </Principal>
+      <Dependent Role="PAG_FLUJO_INGRESO_BANCOS">
+        <PropertyRef Name="pal_id_lote_pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PAG_PROGRA_PAGOS_DETALLE_PAG_LOTE_PAGO">
+    <End Role="PAG_LOTE_PAGO" Type="Self.PAG_LOTE_PAGO" Multiplicity="1" />
+    <End Role="PAG_PROGRA_PAGOS_DETALLE" Type="Self.PAG_PROGRA_PAGOS_DETALLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAG_LOTE_PAGO">
+        <PropertyRef Name="pal_id_lote_pago" />
+      </Principal>
+      <Dependent Role="PAG_PROGRA_PAGOS_DETALLE">
+        <PropertyRef Name="pal_id_lote_pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="APL_TRANSFERENCIASXEMPRESA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idLote" Type="int" Mode="In" />
+    <Parameter Name="importe" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="DEL_AGRUPADOR_PROVEEDOR_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="DEL_LOTE_DETALLE_COMPLETO_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+    <Parameter Name="idLote" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="DEL_LOTE_INCONCLUSO_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idLote" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="DEL_LOTE_NO_APROBADO_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idLote" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="DEL_PROVEEDOR_CUENTA_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+    <Parameter Name="IdProveedor" Type="numeric" Mode="In" />
+    <Parameter Name="CuentaPagadora" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="INS_AGRUPADOR_PROVEEDOR_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idAgrupador" Type="numeric" Mode="In" />
+    <Parameter Name="idProveedor" Type="int" Mode="In" />
+    <Parameter Name="ordenAgruProveedor" Type="int" Mode="In" />
+  </Function>
+  <Function Name="INS_APLICA_LOTE_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="emp_idempresa" Type="int" Mode="In" />
+    <Parameter Name="idLote" Type="decimal" Mode="In" />
+    <Parameter Name="idUsuario" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="INS_APLICA_LOTEDIRECTO_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="emp_idempresa" Type="int" Mode="In" />
+    <Parameter Name="idLote" Type="decimal" Mode="In" />
+    <Parameter Name="idUsuario" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="INS_APROBACION_REGRESO_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="proc_id" Type="int" Mode="In" />
+    <Parameter Name="nodo" Type="int" Mode="In" />
+    <Parameter Name="emp_idempresa" Type="int" Mode="In" />
+    <Parameter Name="idLote" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="INS_APROBACION_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="proc_id" Type="int" Mode="In" />
+    <Parameter Name="nodo" Type="int" Mode="In" />
+    <Parameter Name="emp_idempresa" Type="int" Mode="In" />
+    <Parameter Name="idLote" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="INS_APRUEBA_LOTE_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="proc_id" Type="int" Mode="In" />
+    <Parameter Name="nodo" Type="int" Mode="In" />
+    <Parameter Name="emp_idempresa" Type="int" Mode="In" />
+    <Parameter Name="idLote" Type="decimal" Mode="In" />
+    <Parameter Name="idUsuario" Type="numeric" Mode="In" />
+    <Parameter Name="idAprobador" Type="numeric" Mode="In" />
+    <Parameter Name="observacion" Type="varchar" Mode="In" />
+    <Parameter Name="idAprobacion" Type="numeric" Mode="In" />
+    <Parameter Name="not_identificador" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="INS_BITACORA_POGRA_PAGOS_DET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NumeroTransaccion" Type="varchar" Mode="In" />
+    <Parameter Name="idLotePago" Type="int" Mode="In" />
+  </Function>
+  <Function Name="INS_DE_BPRO_A_PAGOS_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="INS_ERROR_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="componente" Type="nvarchar" Mode="In" />
+    <Parameter Name="mensaje" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="INS_LOTE_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+    <Parameter Name="idUsuario" Type="numeric" Mode="In" />
+    <Parameter Name="nombreLote" Type="nvarchar" Mode="In" />
+    <Parameter Name="estatus" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="INS_PAG_PROG_PAGOS_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="int" Mode="In" />
+    <Parameter Name="idUsuario" Type="int" Mode="In" />
+    <Parameter Name="nombreLote" Type="nvarchar" Mode="In" />
+    <Parameter Name="estatus" Type="smallint" Mode="In" />
+    <Parameter Name="esApliacionDirecta" Type="smallint" Mode="In" />
+    <Parameter Name="cifraControl" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="INS_PROG_PAGOS_AUTORIZA_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idUsuario" Type="numeric" Mode="In" />
+    <Parameter Name="idPadre" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="INS_PROG_PAGOS_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idUsuario" Type="numeric" Mode="In" />
+    <Parameter Name="idPadre" Type="numeric" Mode="In" />
+    <Parameter Name="datosIngreso" Type="xml" Mode="In" />
+    <Parameter Name="datosTransferencias" Type="xml" Mode="In" />
+    <Parameter Name="datosTotales" Type="xml" Mode="In" />
+    <Parameter Name="caja" Type="decimal" Mode="In" />
+    <Parameter Name="cobranzaEsperada" Type="decimal" Mode="In" />
+    <Parameter Name="operacion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="INS_PROV_BPRO_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="INS_PROVEEDOR_CUENTA_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+    <Parameter Name="idProveedor" Type="numeric" Mode="In" />
+    <Parameter Name="nombreProveedor" Type="nvarchar" Mode="In" />
+    <Parameter Name="cuentaPagadora" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="INS_REF_AUTOMATICA_LOTE_DETALLE_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idLote" Type="numeric" Mode="In" />
+    <Parameter Name="idProveedorPRM" Type="numeric" Mode="In" />
+    <Parameter Name="idReferencia" Type="numeric" Mode="In" />
+    <Parameter Name="numagrupamiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="INS_REF_AUTOMATICA_LOTE_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idLote" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="PREPARA_PRUEBAS_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="PROC_ACTUALIZA_CARTERA_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PROC_BORRA_LOTES_NO_APROBADOS_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_AGRUPADORES_PROVEEDOR_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_AGRUPADORES_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_BUSCA_SERVIDOR_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="emp_nombre" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SEL_CUENTAS_EGRESOS_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+    <Parameter Name="numLote" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_CUENTAS_EGRESOS_SPBK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+    <Parameter Name="numLote" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_CUENTAS_INGRESOS_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+    <Parameter Name="numLote" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_CUENTAS_TRANSFERENCIAS_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idLotePago" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_ELIMINA_LOTE_SP_Borrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idLote" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_EMPLEADO_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpleado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SEL_EMPRESAS_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SEL_EMPRESAS_SP_BK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SEL_EMPRESAS_SP4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SEL_ENCABEZADO_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_ERRORES_CXP_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idlote" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SEL_ESCENARIO_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEscenario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SEL_FORMATO_SFTP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDBanco" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SEL_INGRESO_OTROS_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idLotePago" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_LIBERAR_CXP_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idlote" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SEL_LOTE_DETALLE_COMPLETO_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+    <Parameter Name="idLote" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_LOTE_DETALLE_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+    <Parameter Name="idUsuario" Type="numeric" Mode="In" />
+    <Parameter Name="idLotePago" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_LOTE_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+    <Parameter Name="idUsuario" Type="numeric" Mode="In" />
+    <Parameter Name="borraLotes" Type="int" Mode="In" />
+    <Parameter Name="idLote" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_LOTESXFECHA_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+    <Parameter Name="idUsuario" Type="numeric" Mode="In" />
+    <Parameter Name="fecha_ini" Type="varchar" Mode="In" />
+    <Parameter Name="fecha_fin" Type="varchar" Mode="In" />
+    <Parameter Name="estatus" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SEL_PAGOS_DETALLES_BITACORA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NumeroTransaccion" Type="varchar" Mode="In" />
+    <Parameter Name="idLotePago" Type="int" Mode="In" />
+    <Parameter Name="estatusTransaccion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SEL_PROG_FIND_BANK_TXT_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idPadre" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_PROG_FIND_NAMELOTE_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idPadre" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_PROG_PAGOS_BANAMEX_TXT_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idPadre" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_PROG_PAGOS_GUARDADA_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idPadre" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_PROG_PAGOS_TXT_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idPadre" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_PROG_PAGOS_TXTGRP_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idPadre" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_PROGRAMACION_PAGOS_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_PROGRAMACION_PAGOSENROJO_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="SEL_PROGRAMACION_PAGOSXVENCER_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_PROVEEDORES_CTA_PAGADORA_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_PROVEEDORES_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_RUTA_CONFIGURACION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SEL_TIPO_CON_CONFCONTA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SEL_TOTAL_BANCOS_LOTE_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idPadre" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="SEL_TOTAL_BANCOS_P_NP_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="SEL_TOTAL_BANCOS_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="SEL_TRANSFERENCIASXEMPRESA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SEL_TRANSFERENCIASXEMPRESAXFECHA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="int" Mode="In" />
+    <Parameter Name="fecha_ini" Type="varchar" Mode="In" />
+    <Parameter Name="fecha_fin" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SEL_TRANSFERENCIASXLOTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idLote" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SEL_USUARIO_TRANSFERENCIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SEL_USUARIOS_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UPD_TRANSFERENCIASXEMPRESA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idLote" Type="int" Mode="In" />
+    <Parameter Name="importe" Type="numeric" Mode="In" />
+  </Function>
+  <EntityContainer Name="PagosModelStoreContainer">
+    <EntitySet Name="PAG_CAT_AGRUPADORES" EntityType="Self.PAG_CAT_AGRUPADORES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAG_COLUMNA" EntityType="Self.PAG_COLUMNA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAG_ESCENARIOS_PAGOS" EntityType="Self.PAG_ESCENARIOS_PAGOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAG_ESTATUS_LOTE" EntityType="Self.PAG_ESTATUS_LOTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAG_ESTATUS_TRANSFERENCIAS" EntityType="Self.PAG_ESTATUS_TRANSFERENCIAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAG_FLUJO_EGRESO_BANCOS" EntityType="Self.PAG_FLUJO_EGRESO_BANCOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAG_FLUJO_INGRESO_BANCOS" EntityType="Self.PAG_FLUJO_INGRESO_BANCOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAG_FLUJO_INGRESO_OTROS" EntityType="Self.PAG_FLUJO_INGRESO_OTROS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAG_LOTE_PAGO" EntityType="Self.PAG_LOTE_PAGO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAG_PARAMETROS" EntityType="Self.PAG_PARAMETROS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAG_PARAMETROS_EMPRESAS" EntityType="Self.PAG_PARAMETROS_EMPRESAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAG_PROGRA_PAGOS_BPRO" EntityType="Self.PAG_PROGRA_PAGOS_BPRO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAG_PROGRA_PAGOS_DETALLE" EntityType="Self.PAG_PROGRA_PAGOS_DETALLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAG_REFERENCIA" EntityType="Self.PAG_REFERENCIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAG_TABLA_PASO_POLIZAS" EntityType="Self.PAG_TABLA_PASO_POLIZAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAG_TIPO_REFERENCIA_BANCOS" EntityType="Self.PAG_TIPO_REFERENCIA_BANCOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAG_TIPO_REFERENCIA_PLANTA" EntityType="Self.PAG_TIPO_REFERENCIA_PLANTA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Error" EntityType="Self.Error" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Error].[id] AS [id], 
+    [Error].[componente] AS [componente], 
+    [Error].[parametros] AS [parametros], 
+    [Error].[mensaje] AS [mensaje], 
+    [Error].[fecha] AS [fecha]
+    FROM [dbo].[Error] AS [Error]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PAG_AGRUPADOR_PROVEEDOR" EntityType="Self.PAG_AGRUPADOR_PROVEEDOR" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PAG_AGRUPADOR_PROVEEDOR].[pca_idAgrupador] AS [pca_idAgrupador], 
+    [PAG_AGRUPADOR_PROVEEDOR].[pap_idProveedor] AS [pap_idProveedor], 
+    [PAG_AGRUPADOR_PROVEEDOR].[pap_orden] AS [pap_orden]
+    FROM [dbo].[PAG_AGRUPADOR_PROVEEDOR] AS [PAG_AGRUPADOR_PROVEEDOR]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PAG_CAT_PROVEEDORES" EntityType="Self.PAG_CAT_PROVEEDORES" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PAG_CAT_PROVEEDORES].[pcp_id] AS [pcp_id], 
+    [PAG_CAT_PROVEEDORES].[pcp_idEmpresa] AS [pcp_idEmpresa], 
+    [PAG_CAT_PROVEEDORES].[pcp_idProveedor] AS [pcp_idProveedor], 
+    [PAG_CAT_PROVEEDORES].[pcp_nombreProveedor] AS [pcp_nombreProveedor], 
+    [PAG_CAT_PROVEEDORES].[pcp_bancoPagador] AS [pcp_bancoPagador], 
+    [PAG_CAT_PROVEEDORES].[pcp_cuentaPagadora] AS [pcp_cuentaPagadora], 
+    [PAG_CAT_PROVEEDORES].[pcp_claveCuentaPagadora] AS [pcp_claveCuentaPagadora], 
+    [PAG_CAT_PROVEEDORES].[pcp_bancoProveedor] AS [pcp_bancoProveedor], 
+    [PAG_CAT_PROVEEDORES].[pcp_cuentaProveedor] AS [pcp_cuentaProveedor], 
+    [PAG_CAT_PROVEEDORES].[pcp_claveCuentaProveedor] AS [pcp_claveCuentaProveedor], 
+    [PAG_CAT_PROVEEDORES].[pcp_tipoProveedor] AS [pcp_tipoProveedor]
+    FROM [dbo].[PAG_CAT_PROVEEDORES] AS [PAG_CAT_PROVEEDORES]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PAG_COLUMNA_USUARIO" EntityType="Self.PAG_COLUMNA_USUARIO" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PAG_COLUMNA_USUARIO].[pcu_idUsuario] AS [pcu_idUsuario], 
+    [PAG_COLUMNA_USUARIO].[pac_idColumna] AS [pac_idColumna], 
+    [PAG_COLUMNA_USUARIO].[pcu_orden] AS [pcu_orden], 
+    [PAG_COLUMNA_USUARIO].[pcu_estatus] AS [pcu_estatus]
+    FROM [dbo].[PAG_COLUMNA_USUARIO] AS [PAG_COLUMNA_USUARIO]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PAG_PROVEEDOR_BANCO_PAGADOR" EntityType="Self.PAG_PROVEEDOR_BANCO_PAGADOR" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PAG_PROVEEDOR_BANCO_PAGADOR].[pbp_idEmpresa] AS [pbp_idEmpresa], 
+    [PAG_PROVEEDOR_BANCO_PAGADOR].[pbp_idProveedor] AS [pbp_idProveedor], 
+    [PAG_PROVEEDOR_BANCO_PAGADOR].[pbp_idBanco] AS [pbp_idBanco]
+    FROM [dbo].[PAG_PROVEEDOR_BANCO_PAGADOR] AS [PAG_PROVEEDOR_BANCO_PAGADOR]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PAG_REFERENCIA_DOCUMENTO" EntityType="Self.PAG_REFERENCIA_DOCUMENTO" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PAG_REFERENCIA_DOCUMENTO].[pre_id_referencia] AS [pre_id_referencia], 
+    [PAG_REFERENCIA_DOCUMENTO].[pad_id] AS [pad_id], 
+    [PAG_REFERENCIA_DOCUMENTO].[prd_estatus] AS [prd_estatus]
+    FROM [dbo].[PAG_REFERENCIA_DOCUMENTO] AS [PAG_REFERENCIA_DOCUMENTO]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PAG_TRANSFERENCIAS_BANCARIAS" EntityType="Self.PAG_TRANSFERENCIAS_BANCARIAS" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PAG_TRANSFERENCIAS_BANCARIAS].[ptb_id] AS [ptb_id], 
+    [PAG_TRANSFERENCIAS_BANCARIAS].[pal_id_lote_pago] AS [pal_id_lote_pago], 
+    [PAG_TRANSFERENCIAS_BANCARIAS].[ptb_id_cuenta_origen] AS [ptb_id_cuenta_origen], 
+    [PAG_TRANSFERENCIAS_BANCARIAS].[ptb_id_cuenta_destino] AS [ptb_id_cuenta_destino], 
+    [PAG_TRANSFERENCIAS_BANCARIAS].[ptb_importe] AS [ptb_importe], 
+    [PAG_TRANSFERENCIAS_BANCARIAS].[ptb_estatus] AS [ptb_estatus]
+    FROM [dbo].[PAG_TRANSFERENCIAS_BANCARIAS] AS [PAG_TRANSFERENCIAS_BANCARIAS]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_PAG_COLUMNA_USUARIO_PAG_COLUMNA" Association="Self.FK_PAG_COLUMNA_USUARIO_PAG_COLUMNA">
+      <End Role="PAG_COLUMNA" EntitySet="PAG_COLUMNA" />
+      <End Role="PAG_COLUMNA_USUARIO" EntitySet="PAG_COLUMNA_USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PAG_ESCENARIOS_PAGOS_PAG_TIPO_REFERENCIA_BANCOS" Association="Self.FK_PAG_ESCENARIOS_PAGOS_PAG_TIPO_REFERENCIA_BANCOS">
+      <End Role="PAG_TIPO_REFERENCIA_BANCOS" EntitySet="PAG_TIPO_REFERENCIA_BANCOS" />
+      <End Role="PAG_ESCENARIOS_PAGOS" EntitySet="PAG_ESCENARIOS_PAGOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PAG_ESCENARIOS_PAGOS_PAG_TIPO_REFERENCIA_PLANTA" Association="Self.FK_PAG_ESCENARIOS_PAGOS_PAG_TIPO_REFERENCIA_PLANTA">
+      <End Role="PAG_TIPO_REFERENCIA_PLANTA" EntitySet="PAG_TIPO_REFERENCIA_PLANTA" />
+      <End Role="PAG_ESCENARIOS_PAGOS" EntitySet="PAG_ESCENARIOS_PAGOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PAG_FLUJO_INGRESO_BANCOS_PAG_LOTE_PAGO" Association="Self.FK_PAG_FLUJO_INGRESO_BANCOS_PAG_LOTE_PAGO">
+      <End Role="PAG_LOTE_PAGO" EntitySet="PAG_LOTE_PAGO" />
+      <End Role="PAG_FLUJO_INGRESO_BANCOS" EntitySet="PAG_FLUJO_INGRESO_BANCOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PAG_PROGRA_PAGOS_DETALLE_PAG_LOTE_PAGO" Association="Self.FK_PAG_PROGRA_PAGOS_DETALLE_PAG_LOTE_PAGO">
+      <End Role="PAG_LOTE_PAGO" EntitySet="PAG_LOTE_PAGO" />
+      <End Role="PAG_PROGRA_PAGOS_DETALLE" EntitySet="PAG_PROGRA_PAGOS_DETALLE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1528e060c518426ba11dcae2f34a66e9" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="PagosModel.PAG_CAT_AGRUPADORES" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_COLUMNA" Width="1.5" PointX="7.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_ESCENARIOS_PAGOS" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_ESTATUS_LOTE" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_ESTATUS_TRANSFERENCIAS" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_LOTE_PAGO" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_PARAMETROS" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_PARAMETROS_EMPRESAS" Width="1.5" PointX="5.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_REFERENCIA" Width="1.5" PointX="7.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_TABLA_PASO_POLIZAS" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_TIPO_REFERENCIA_BANCOS" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_TIPO_REFERENCIA_PLANTA" Width="1.5" PointX="5.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.Error" Width="1.5" PointX="11.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_AGRUPADOR_PROVEEDOR" Width="1.5" PointX="11.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_CAT_PROVEEDORES" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_COLUMNA_USUARIO" Width="1.5" PointX="10" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_FLUJO_EGRESO_BANCOS" Width="1.5" PointX="13.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_FLUJO_INGRESO_BANCOS" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_FLUJO_INGRESO_OTROS" Width="1.5" PointX="5.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_PROGRA_PAGOS_BPRO" Width="1.5" PointX="13.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_PROGRA_PAGOS_DETALLE" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_PROVEEDOR_BANCO_PAGADOR" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_REFERENCIA_DOCUMENTO" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PagosModel.PAG_TRANSFERENCIAS_BANCARIAS" Width="1.5" PointX="2.75" PointY="15.75" IsExpanded="true" />
+        <AssociationConnector Association="PagosModel.FK_PAG_COLUMNA_USUARIO_PAG_COLUMNA" ManuallyRouted="false" />
+        <AssociationConnector Association="PagosModel.FK_PAG_ESCENARIOS_PAGOS_PAG_TIPO_REFERENCIA_BANCOS" ManuallyRouted="false" />
+        <AssociationConnector Association="PagosModel.FK_PAG_ESCENARIOS_PAGOS_PAG_TIPO_REFERENCIA_PLANTA" ManuallyRouted="false" />
+        <AssociationConnector Association="PagosModel.FK_PAG_FLUJO_INGRESO_BANCOS_PAG_LOTE_PAGO" ManuallyRouted="false" />
+        <AssociationConnector Association="PagosModel.FK_PAG_PROGRA_PAGOS_DETALLE_PAG_LOTE_PAGO" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

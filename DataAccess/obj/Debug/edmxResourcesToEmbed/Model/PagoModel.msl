@@ -1,0 +1,811 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PagosModelStoreContainer" CdmEntityContainer="PagosEntities">
+    <EntitySetMapping Name="PAG_CAT_AGRUPADORES">
+      <EntityTypeMapping TypeName="PagosModel.PAG_CAT_AGRUPADORES">
+        <MappingFragment StoreEntitySet="PAG_CAT_AGRUPADORES">
+          <ScalarProperty Name="pca_idAgrupador" ColumnName="pca_idAgrupador" />
+          <ScalarProperty Name="pca_idEmpresa" ColumnName="pca_idEmpresa" />
+          <ScalarProperty Name="pca_nombre" ColumnName="pca_nombre" />
+          <ScalarProperty Name="pca_descripcion" ColumnName="pca_descripcion" />
+          <ScalarProperty Name="pca_orden" ColumnName="pca_orden" />
+          <ScalarProperty Name="pca_estatus" ColumnName="pca_estatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAG_COLUMNA">
+      <EntityTypeMapping TypeName="PagosModel.PAG_COLUMNA">
+        <MappingFragment StoreEntitySet="PAG_COLUMNA">
+          <ScalarProperty Name="pac_idColumna" ColumnName="pac_idColumna" />
+          <ScalarProperty Name="pac_columna" ColumnName="pac_columna" />
+          <ScalarProperty Name="pac_label" ColumnName="pac_label" />
+          <ScalarProperty Name="pac_width" ColumnName="pac_width" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAG_LOTE_PAGO">
+      <EntityTypeMapping TypeName="PagosModel.PAG_LOTE_PAGO">
+        <MappingFragment StoreEntitySet="PAG_LOTE_PAGO">
+          <ScalarProperty Name="pal_id_lote_pago" ColumnName="pal_id_lote_pago" />
+          <ScalarProperty Name="pal_id_empresa" ColumnName="pal_id_empresa" />
+          <ScalarProperty Name="pal_id_usuario" ColumnName="pal_id_usuario" />
+          <ScalarProperty Name="pal_fecha" ColumnName="pal_fecha" />
+          <ScalarProperty Name="pal_nombre" ColumnName="pal_nombre" />
+          <ScalarProperty Name="pal_total_pagar" ColumnName="pal_total_pagar" />
+          <ScalarProperty Name="pal_cartera_vencida" ColumnName="pal_cartera_vencida" />
+          <ScalarProperty Name="pal_no_incluido" ColumnName="pal_no_incluido" />
+          <ScalarProperty Name="pal_no_pagable" ColumnName="pal_no_pagable" />
+          <ScalarProperty Name="pal_reprogramado" ColumnName="pal_reprogramado" />
+          <ScalarProperty Name="pal_estatus" ColumnName="pal_estatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAG_PROGRA_PAGOS">
+      <EntityTypeMapping TypeName="PagosModel.PAG_PROGRA_PAGOS">
+        <MappingFragment StoreEntitySet="PAG_PROGRA_PAGOS">
+          <ScalarProperty Name="pag_id" ColumnName="pag_id" />
+          <ScalarProperty Name="pag_idUsuario" ColumnName="pag_idUsuario" />
+          <ScalarProperty Name="pag_fecha" ColumnName="pag_fecha" />
+          <ScalarProperty Name="pag_varAux1" ColumnName="pag_varAux1" />
+          <ScalarProperty Name="pag_varAux2" ColumnName="pag_varAux2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAG_TABLA_PASO_POLIZAS">
+      <EntityTypeMapping TypeName="PagosModel.PAG_TABLA_PASO_POLIZAS">
+        <MappingFragment StoreEntitySet="PAG_TABLA_PASO_POLIZAS">
+          <ScalarProperty Name="tab_id" ColumnName="tab_id" />
+          <ScalarProperty Name="pal_id_lote_pago" ColumnName="pal_id_lote_pago" />
+          <ScalarProperty Name="pad_polTipo" ColumnName="pad_polTipo" />
+          <ScalarProperty Name="pad_polAnnio" ColumnName="pad_polAnnio" />
+          <ScalarProperty Name="pad_polMes" ColumnName="pad_polMes" />
+          <ScalarProperty Name="pad_polConsecutivo" ColumnName="pad_polConsecutivo" />
+          <ScalarProperty Name="pad_polMovimiento" ColumnName="pad_polMovimiento" />
+          <ScalarProperty Name="pad_fechaPromesaPago" ColumnName="pad_fechaPromesaPago" />
+          <ScalarProperty Name="pad_saldo" ColumnName="pad_saldo" />
+          <ScalarProperty Name="tab_revision" ColumnName="tab_revision" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAG_TABLA_PASO_POLIZAS_2">
+      <EntityTypeMapping TypeName="PagosModel.PAG_TABLA_PASO_POLIZAS_2">
+        <MappingFragment StoreEntitySet="PAG_TABLA_PASO_POLIZAS_2">
+          <ScalarProperty Name="tab_id" ColumnName="tab_id" />
+          <ScalarProperty Name="pag_id" ColumnName="pag_id" />
+          <ScalarProperty Name="pad_polTipo" ColumnName="pad_polTipo" />
+          <ScalarProperty Name="pad_polAnnio" ColumnName="pad_polAnnio" />
+          <ScalarProperty Name="pad_polMes" ColumnName="pad_polMes" />
+          <ScalarProperty Name="pad_polConsecutivo" ColumnName="pad_polConsecutivo" />
+          <ScalarProperty Name="pad_polMovimiento" ColumnName="pad_polMovimiento" />
+          <ScalarProperty Name="pad_fechaPromesaPago" ColumnName="pad_fechaPromesaPago" />
+          <ScalarProperty Name="pad_saldo" ColumnName="pad_saldo" />
+          <ScalarProperty Name="pad_selecccionado" ColumnName="pad_selecccionado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="PagosModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAG_AGRUPADOR_PROVEEDOR">
+      <EntityTypeMapping TypeName="PagosModel.PAG_AGRUPADOR_PROVEEDOR">
+        <MappingFragment StoreEntitySet="PAG_AGRUPADOR_PROVEEDOR">
+          <ScalarProperty Name="pca_idAgrupador" ColumnName="pca_idAgrupador" />
+          <ScalarProperty Name="pap_idProveedor" ColumnName="pap_idProveedor" />
+          <ScalarProperty Name="pap_orden" ColumnName="pap_orden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAG_CAT_PROVEEDORES">
+      <EntityTypeMapping TypeName="PagosModel.PAG_CAT_PROVEEDORES">
+        <MappingFragment StoreEntitySet="PAG_CAT_PROVEEDORES">
+          <ScalarProperty Name="pcp_id" ColumnName="pcp_id" />
+          <ScalarProperty Name="pcp_idProveedor" ColumnName="pcp_idProveedor" />
+          <ScalarProperty Name="pcp_nombreProveedor" ColumnName="pcp_nombreProveedor" />
+          <ScalarProperty Name="pcp_bancoPagar" ColumnName="pcp_bancoPagar" />
+          <ScalarProperty Name="pcp_cuentaPagadora" ColumnName="pcp_cuentaPagadora" />
+          <ScalarProperty Name="pcp_cuentaProveedor" ColumnName="pcp_cuentaProveedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAG_COLUMNA_USUARIO">
+      <EntityTypeMapping TypeName="PagosModel.PAG_COLUMNA_USUARIO">
+        <MappingFragment StoreEntitySet="PAG_COLUMNA_USUARIO">
+          <ScalarProperty Name="pcu_idUsuario" ColumnName="pcu_idUsuario" />
+          <ScalarProperty Name="pac_idColumna" ColumnName="pac_idColumna" />
+          <ScalarProperty Name="pcu_orden" ColumnName="pcu_orden" />
+          <ScalarProperty Name="pcu_estatus" ColumnName="pcu_estatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAG_FLUJO_EFECTIVO">
+      <EntityTypeMapping TypeName="PagosModel.PAG_FLUJO_EFECTIVO">
+        <MappingFragment StoreEntitySet="PAG_FLUJO_EFECTIVO">
+          <ScalarProperty Name="pfe_id" ColumnName="pfe_id" />
+          <ScalarProperty Name="pfe_saldo_banco" ColumnName="pfe_saldo_banco" />
+          <ScalarProperty Name="pfe_saldo_caja" ColumnName="pfe_saldo_caja" />
+          <ScalarProperty Name="pfe_cobranza_esperada" ColumnName="pfe_cobranza_esperada" />
+          <ScalarProperty Name="pfe_flujo_efectivo" ColumnName="pfe_flujo_efectivo" />
+          <ScalarProperty Name="pfe_disponible" ColumnName="pfe_disponible" />
+          <ScalarProperty Name="pfe_var_aux1" ColumnName="pfe_var_aux1" />
+          <ScalarProperty Name="pfe_var_aux2" ColumnName="pfe_var_aux2" />
+          <ScalarProperty Name="pfe_var_aux3" ColumnName="pfe_var_aux3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAG_FLUJO_EGRESO_BANCOS">
+      <EntityTypeMapping TypeName="PagosModel.PAG_FLUJO_EGRESO_BANCOS">
+        <MappingFragment StoreEntitySet="PAG_FLUJO_EGRESO_BANCOS">
+          <ScalarProperty Name="peb_id" ColumnName="peb_id" />
+          <ScalarProperty Name="pal_id_lote_pago" ColumnName="pal_id_lote_pago" />
+          <ScalarProperty Name="peb_id_cuenta" ColumnName="peb_id_cuenta" />
+          <ScalarProperty Name="peb_saldo" ColumnName="peb_saldo" />
+          <ScalarProperty Name="peb_aTransferir" ColumnName="peb_aTransferir" />
+          <ScalarProperty Name="peb_total" ColumnName="peb_total" />
+          <ScalarProperty Name="peb_excedente" ColumnName="peb_excedente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAG_FLUJO_INGRESO_BANCOS">
+      <EntityTypeMapping TypeName="PagosModel.PAG_FLUJO_INGRESO_BANCOS">
+        <MappingFragment StoreEntitySet="PAG_FLUJO_INGRESO_BANCOS">
+          <ScalarProperty Name="pib_id" ColumnName="pib_id" />
+          <ScalarProperty Name="pal_id_lote_pago" ColumnName="pal_id_lote_pago" />
+          <ScalarProperty Name="pib_id_cuenta" ColumnName="pib_id_cuenta" />
+          <ScalarProperty Name="pib_saldo" ColumnName="pib_saldo" />
+          <ScalarProperty Name="pib_disponible" ColumnName="pib_disponible" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAG_FLUJO_INGRESO_OTROS">
+      <EntityTypeMapping TypeName="PagosModel.PAG_FLUJO_INGRESO_OTROS">
+        <MappingFragment StoreEntitySet="PAG_FLUJO_INGRESO_OTROS">
+          <ScalarProperty Name="pio_id" ColumnName="pio_id" />
+          <ScalarProperty Name="pal_id_lote_pago" ColumnName="pal_id_lote_pago" />
+          <ScalarProperty Name="pio_caja" ColumnName="pio_caja" />
+          <ScalarProperty Name="pio_cobranzaEsperada" ColumnName="pio_cobranzaEsperada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAG_PROGRA_PAGOS_DETALLE">
+      <EntityTypeMapping TypeName="PagosModel.PAG_PROGRA_PAGOS_DETALLE">
+        <MappingFragment StoreEntitySet="PAG_PROGRA_PAGOS_DETALLE">
+          <ScalarProperty Name="pal_id_lote_pago" ColumnName="pal_id_lote_pago" />
+          <ScalarProperty Name="pad_id" ColumnName="pad_id" />
+          <ScalarProperty Name="pad_idProveedor" ColumnName="pad_idProveedor" />
+          <ScalarProperty Name="pad_polTipo" ColumnName="pad_polTipo" />
+          <ScalarProperty Name="pad_polAnnio" ColumnName="pad_polAnnio" />
+          <ScalarProperty Name="pad_polMes" ColumnName="pad_polMes" />
+          <ScalarProperty Name="pad_polConsecutivo" ColumnName="pad_polConsecutivo" />
+          <ScalarProperty Name="pad_polMovimiento" ColumnName="pad_polMovimiento" />
+          <ScalarProperty Name="pad_polFechaOperacion" ColumnName="pad_polFechaOperacion" />
+          <ScalarProperty Name="pad_cuenta" ColumnName="pad_cuenta" />
+          <ScalarProperty Name="pad_proveedor" ColumnName="pad_proveedor" />
+          <ScalarProperty Name="pad_documento" ColumnName="pad_documento" />
+          <ScalarProperty Name="pad_tipo" ColumnName="pad_tipo" />
+          <ScalarProperty Name="pad_tipoDocto" ColumnName="pad_tipoDocto" />
+          <ScalarProperty Name="pad_cartera" ColumnName="pad_cartera" />
+          <ScalarProperty Name="pad_monto" ColumnName="pad_monto" />
+          <ScalarProperty Name="pad_saldo" ColumnName="pad_saldo" />
+          <ScalarProperty Name="pad_saldoPorcentaje" ColumnName="pad_saldoPorcentaje" />
+          <ScalarProperty Name="pad_moneda" ColumnName="pad_moneda" />
+          <ScalarProperty Name="pad_fechaVencimiento" ColumnName="pad_fechaVencimiento" />
+          <ScalarProperty Name="pad_fechaPromesaPago" ColumnName="pad_fechaPromesaPago" />
+          <ScalarProperty Name="pad_fechaRecepcion" ColumnName="pad_fechaRecepcion" />
+          <ScalarProperty Name="pad_fechaFactura" ColumnName="pad_fechaFactura" />
+          <ScalarProperty Name="pad_ordenCompra" ColumnName="pad_ordenCompra" />
+          <ScalarProperty Name="pad_idEstatus" ColumnName="pad_idEstatus" />
+          <ScalarProperty Name="pad_estatus" ColumnName="pad_estatus" />
+          <ScalarProperty Name="pad_anticipo" ColumnName="pad_anticipo" />
+          <ScalarProperty Name="pad_anticipoAplicado" ColumnName="pad_anticipoAplicado" />
+          <ScalarProperty Name="pad_annio" ColumnName="pad_annio" />
+          <ScalarProperty Name="pad_proveedorBloqueado" ColumnName="pad_proveedorBloqueado" />
+          <ScalarProperty Name="pad_ordenBloqueada" ColumnName="pad_ordenBloqueada" />
+          <ScalarProperty Name="pad_diasCobro" ColumnName="pad_diasCobro" />
+          <ScalarProperty Name="pad_aprobado" ColumnName="pad_aprobado" />
+          <ScalarProperty Name="pad_contReprog" ColumnName="pad_contReprog" />
+          <ScalarProperty Name="pad_documentoPagable" ColumnName="pad_documentoPagable" />
+          <ScalarProperty Name="pad_aPagar" ColumnName="pad_aPagar" />
+          <ScalarProperty Name="pad_nombreAgrupador" ColumnName="pad_nombreAgrupador" />
+          <ScalarProperty Name="pad_ordenAgrupador" ColumnName="pad_ordenAgrupador" />
+          <ScalarProperty Name="pad_ordenProveedor" ColumnName="pad_ordenProveedor" />
+          <ScalarProperty Name="pad_cuentaProveedor" ColumnName="pad_cuentaProveedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAG_PROVEEDOR_CUENTA">
+      <EntityTypeMapping TypeName="PagosModel.PAG_PROVEEDOR_CUENTA">
+        <MappingFragment StoreEntitySet="PAG_PROVEEDOR_CUENTA">
+          <ScalarProperty Name="ppc_id" ColumnName="ppc_id" />
+          <ScalarProperty Name="ppc_idEmpresa" ColumnName="ppc_idEmpresa" />
+          <ScalarProperty Name="ppc_idProveedor" ColumnName="ppc_idProveedor" />
+          <ScalarProperty Name="ppc_banco" ColumnName="ppc_banco" />
+          <ScalarProperty Name="ppc_estatus" ColumnName="ppc_estatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAG_SELECT_PRUEBA">
+      <EntityTypeMapping TypeName="PagosModel.PAG_SELECT_PRUEBA">
+        <MappingFragment StoreEntitySet="PAG_SELECT_PRUEBA">
+          <ScalarProperty Name="pal_id_lote_pago" ColumnName="pal_id_lote_pago" />
+          <ScalarProperty Name="pad_id" ColumnName="pad_id" />
+          <ScalarProperty Name="pad_polTipo" ColumnName="pad_polTipo" />
+          <ScalarProperty Name="pad_polAnnio" ColumnName="pad_polAnnio" />
+          <ScalarProperty Name="pad_polMes" ColumnName="pad_polMes" />
+          <ScalarProperty Name="pad_polConsecutivo" ColumnName="pad_polConsecutivo" />
+          <ScalarProperty Name="pad_polMovimiento" ColumnName="pad_polMovimiento" />
+          <ScalarProperty Name="pad_polFechaOperacion" ColumnName="pad_polFechaOperacion" />
+          <ScalarProperty Name="pad_cuenta" ColumnName="pad_cuenta" />
+          <ScalarProperty Name="pad_idProveedor" ColumnName="pad_idProveedor" />
+          <ScalarProperty Name="pad_proveedor" ColumnName="pad_proveedor" />
+          <ScalarProperty Name="pad_documento" ColumnName="pad_documento" />
+          <ScalarProperty Name="pad_tipo" ColumnName="pad_tipo" />
+          <ScalarProperty Name="pad_tipoDocto" ColumnName="pad_tipoDocto" />
+          <ScalarProperty Name="pad_cartera" ColumnName="pad_cartera" />
+          <ScalarProperty Name="pad_monto" ColumnName="pad_monto" />
+          <ScalarProperty Name="pad_saldo" ColumnName="pad_saldo" />
+          <ScalarProperty Name="pad_saldoPorcentaje" ColumnName="pad_saldoPorcentaje" />
+          <ScalarProperty Name="pad_moneda" ColumnName="pad_moneda" />
+          <ScalarProperty Name="pad_fechaVencimiento" ColumnName="pad_fechaVencimiento" />
+          <ScalarProperty Name="pad_fechaPromesaPago" ColumnName="pad_fechaPromesaPago" />
+          <ScalarProperty Name="pad_fechaRecepcion" ColumnName="pad_fechaRecepcion" />
+          <ScalarProperty Name="pad_fechaFactura" ColumnName="pad_fechaFactura" />
+          <ScalarProperty Name="pad_ordenCompra" ColumnName="pad_ordenCompra" />
+          <ScalarProperty Name="pad_idEstatus" ColumnName="pad_idEstatus" />
+          <ScalarProperty Name="pad_estatus" ColumnName="pad_estatus" />
+          <ScalarProperty Name="pad_anticipo" ColumnName="pad_anticipo" />
+          <ScalarProperty Name="pad_anticipoAplicado" ColumnName="pad_anticipoAplicado" />
+          <ScalarProperty Name="pad_annio" ColumnName="pad_annio" />
+          <ScalarProperty Name="pad_proveedorBloqueado" ColumnName="pad_proveedorBloqueado" />
+          <ScalarProperty Name="pad_ordenBloqueada" ColumnName="pad_ordenBloqueada" />
+          <ScalarProperty Name="pad_diasCobro" ColumnName="pad_diasCobro" />
+          <ScalarProperty Name="pad_aprobado" ColumnName="pad_aprobado" />
+          <ScalarProperty Name="pad_contReprog" ColumnName="pad_contReprog" />
+          <ScalarProperty Name="pad_documentoPagable" ColumnName="pad_documentoPagable" />
+          <ScalarProperty Name="pad_aPagar" ColumnName="pad_aPagar" />
+          <ScalarProperty Name="pad_nombreAgrupador" ColumnName="pad_nombreAgrupador" />
+          <ScalarProperty Name="pad_ordenAgrupador" ColumnName="pad_ordenAgrupador" />
+          <ScalarProperty Name="pad_ordenProveedor" ColumnName="pad_ordenProveedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAG_TRANSFERENCIAS_BANCARIAS">
+      <EntityTypeMapping TypeName="PagosModel.PAG_TRANSFERENCIAS_BANCARIAS">
+        <MappingFragment StoreEntitySet="PAG_TRANSFERENCIAS_BANCARIAS">
+          <ScalarProperty Name="ptb_id" ColumnName="ptb_id" />
+          <ScalarProperty Name="pal_id_lote_pago" ColumnName="pal_id_lote_pago" />
+          <ScalarProperty Name="ptb_id_cuenta_origen" ColumnName="ptb_id_cuenta_origen" />
+          <ScalarProperty Name="ptb_id_cuenta_destino" ColumnName="ptb_id_cuenta_destino" />
+          <ScalarProperty Name="ptb_importe" ColumnName="ptb_importe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DEL_PROG_PAGOS_SP" FunctionName="PagosModel.Store.DEL_PROG_PAGOS_SP" />
+    <FunctionImportMapping FunctionImportName="INS_AGRUPADOR_PROVEEDOR_SP" FunctionName="PagosModel.Store.INS_AGRUPADOR_PROVEEDOR_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.INS_AGRUPADOR_PROVEEDOR_SP_Result">
+          <ScalarProperty Name="idAgrupador" ColumnName="idAgrupador" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="INS_BANCOS_TRANSFERENCIAS_SP" FunctionName="PagosModel.Store.INS_BANCOS_TRANSFERENCIAS_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.INS_BANCOS_TRANSFERENCIAS_SP_Result">
+          <ScalarProperty Name="caja" ColumnName="caja" />
+          <ScalarProperty Name="cobranzaEsperada" ColumnName="cobranzaEsperada" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="INS_LOTE_SP" FunctionName="PagosModel.Store.INS_LOTE_SP" />
+    <FunctionImportMapping FunctionImportName="INS_PAG_PROG_PAGOS_SP" FunctionName="PagosModel.Store.INS_PAG_PROG_PAGOS_SP" />
+    <FunctionImportMapping FunctionImportName="INS_PAGOS_INGRESO_EGRESO_OTROS_SP" FunctionName="PagosModel.Store.INS_PAGOS_INGRESO_EGRESO_OTROS_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.INS_PAGOS_INGRESO_EGRESO_OTROS_SP_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="cuenta" ColumnName="cuenta" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="disponible" ColumnName="disponible" />
+          <ScalarProperty Name="ingreso" ColumnName="ingreso" />
+          <ScalarProperty Name="egreso" ColumnName="egreso" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="INS_PROG_PAGOS_SP" FunctionName="PagosModel.Store.INS_PROG_PAGOS_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.INS_PROG_PAGOS_SP_Result">
+          <ScalarProperty Name="caja" ColumnName="caja" />
+          <ScalarProperty Name="cobranzaEsperada" ColumnName="cobranzaEsperada" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="INS_PROG_PAGOS_SP_Respaldo" FunctionName="PagosModel.Store.INS_PROG_PAGOS_SP_Respaldo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.INS_PROG_PAGOS_SP_Respaldo_Result">
+          <ScalarProperty Name="caja" ColumnName="caja" />
+          <ScalarProperty Name="cobranzaEsperada" ColumnName="cobranzaEsperada" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="INS_PROG_PAGOS_SP_v2" FunctionName="PagosModel.Store.INS_PROG_PAGOS_SP_v2" />
+    <FunctionImportMapping FunctionImportName="INS_PROG_PAGOS_SP5" FunctionName="PagosModel.Store.INS_PROG_PAGOS_SP5" />
+    <FunctionImportMapping FunctionImportName="SEL_AGRUPADORES_PROVEEDOR_SP" FunctionName="PagosModel.Store.SEL_AGRUPADORES_PROVEEDOR_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_AGRUPADORES_PROVEEDOR_SP_Result">
+          <ScalarProperty Name="idAgrupador" ColumnName="idAgrupador" />
+          <ScalarProperty Name="nombreAgrupador" ColumnName="nombreAgrupador" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="nombreProveedor" ColumnName="nombreProveedor" />
+          <ScalarProperty Name="ordenAgruProveedor" ColumnName="ordenAgruProveedor" />
+          <ScalarProperty Name="ordenCatAgrupador" ColumnName="ordenCatAgrupador" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_AGRUPADORES_SP" FunctionName="PagosModel.Store.SEL_AGRUPADORES_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_AGRUPADORES_SP_Result">
+          <ScalarProperty Name="pca_idAgrupador" ColumnName="pca_idAgrupador" />
+          <ScalarProperty Name="pca_idEmpresa" ColumnName="pca_idEmpresa" />
+          <ScalarProperty Name="pca_nombre" ColumnName="pca_nombre" />
+          <ScalarProperty Name="pca_descripcion" ColumnName="pca_descripcion" />
+          <ScalarProperty Name="pca_orden" ColumnName="pca_orden" />
+          <ScalarProperty Name="pca_estatus" ColumnName="pca_estatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_BUSCA_SERVIDOR_SP" FunctionName="PagosModel.Store.SEL_BUSCA_SERVIDOR_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_BUSCA_SERVIDOR_SP_Result">
+          <ScalarProperty Name="nombre_base" ColumnName="nombre_base" />
+          <ScalarProperty Name="ip_servidor" ColumnName="ip_servidor" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_CUENTAS_EGRESOS_SP" FunctionName="PagosModel.Store.SEL_CUENTAS_EGRESOS_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_CUENTAS_EGRESOS_SP_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="banco" ColumnName="banco" />
+          <ScalarProperty Name="cuenta" ColumnName="cuenta" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="aTransferir" ColumnName="aTransferir" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="excedente" ColumnName="excedente" />
+          <ScalarProperty Name="totalPagar" ColumnName="totalPagar" />
+          <ScalarProperty Name="saldoIngreso" ColumnName="saldoIngreso" />
+          <ScalarProperty Name="ingreso" ColumnName="ingreso" />
+          <ScalarProperty Name="egreso" ColumnName="egreso" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_CUENTAS_INGRESOS_SP" FunctionName="PagosModel.Store.SEL_CUENTAS_INGRESOS_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_CUENTAS_INGRESOS_SP_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="banco" ColumnName="banco" />
+          <ScalarProperty Name="cuenta" ColumnName="cuenta" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="disponible" ColumnName="disponible" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_CUENTAS_SP" FunctionName="PagosModel.Store.SEL_CUENTAS_SP" />
+    <FunctionImportMapping FunctionImportName="SEL_CUENTAS_TRANSFERENCIAS_SP" FunctionName="PagosModel.Store.SEL_CUENTAS_TRANSFERENCIAS_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_CUENTAS_TRANSFERENCIAS_SP_Result">
+          <ScalarProperty Name="ctaOrigen" ColumnName="ctaOrigen" />
+          <ScalarProperty Name="ctaDestino" ColumnName="ctaDestino" />
+          <ScalarProperty Name="importe" ColumnName="importe" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_EMPLEADO_SP" FunctionName="PagosModel.Store.SEL_EMPLEADO_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_EMPLEADO_SP_Result">
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="iddepartamento" ColumnName="iddepartamento" />
+          <ScalarProperty Name="idsucursal" ColumnName="idsucursal" />
+          <ScalarProperty Name="emp_idempresa" ColumnName="emp_idempresa" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_EMPRESAS_SP" FunctionName="PagosModel.Store.SEL_EMPRESAS_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_EMPRESAS_SP_Result">
+          <ScalarProperty Name="emp_idempresa" ColumnName="emp_idempresa" />
+          <ScalarProperty Name="emp_nombre" ColumnName="emp_nombre" />
+          <ScalarProperty Name="emp_nombrecto" ColumnName="emp_nombrecto" />
+          <ScalarProperty Name="emp_estatus" ColumnName="emp_estatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_ENCABEZADO_SP" FunctionName="PagosModel.Store.SEL_ENCABEZADO_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_ENCABEZADO_SP_Result">
+          <ScalarProperty Name="saldoBanco" ColumnName="saldoBanco" />
+          <ScalarProperty Name="saldoCaja" ColumnName="saldoCaja" />
+          <ScalarProperty Name="cobranzaEsperada" ColumnName="cobranzaEsperada" />
+          <ScalarProperty Name="flujoEfectivo" ColumnName="flujoEfectivo" />
+          <ScalarProperty Name="disponible" ColumnName="disponible" />
+          <ScalarProperty Name="empNombre" ColumnName="empNombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_INGRESO_OTROS_SP" FunctionName="PagosModel.Store.SEL_INGRESO_OTROS_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_INGRESO_OTROS_SP_Result">
+          <ScalarProperty Name="pio_caja" ColumnName="pio_caja" />
+          <ScalarProperty Name="pio_cobranzaEsperada" ColumnName="pio_cobranzaEsperada" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_LOTE_DETALLE_SP" FunctionName="PagosModel.Store.SEL_LOTE_DETALLE_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_LOTE_DETALLE_SP_Result">
+          <ScalarProperty Name="idLotePago" ColumnName="idLotePago" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="polTipo" ColumnName="polTipo" />
+          <ScalarProperty Name="annio" ColumnName="annio" />
+          <ScalarProperty Name="polMes" ColumnName="polMes" />
+          <ScalarProperty Name="polConsecutivo" ColumnName="polConsecutivo" />
+          <ScalarProperty Name="polMovimiento" ColumnName="polMovimiento" />
+          <ScalarProperty Name="polFechaOperacion" ColumnName="polFechaOperacion" />
+          <ScalarProperty Name="cuenta" ColumnName="cuenta" />
+          <ScalarProperty Name="proveedor" ColumnName="proveedor" />
+          <ScalarProperty Name="documento" ColumnName="documento" />
+          <ScalarProperty Name="tipoDocto" ColumnName="tipoDocto" />
+          <ScalarProperty Name="cartera" ColumnName="cartera" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="saldoPorcentaje" ColumnName="saldoPorcentaje" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="fechaVencimiento" ColumnName="fechaVencimiento" />
+          <ScalarProperty Name="fechaPromesaPago" ColumnName="fechaPromesaPago" />
+          <ScalarProperty Name="fechaRecepcion" ColumnName="fechaRecepcion" />
+          <ScalarProperty Name="fechaFactura" ColumnName="fechaFactura" />
+          <ScalarProperty Name="ordenCompra" ColumnName="ordenCompra" />
+          <ScalarProperty Name="idEstatus" ColumnName="idEstatus" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="anticipo" ColumnName="anticipo" />
+          <ScalarProperty Name="anticipoAplicado" ColumnName="anticipoAplicado" />
+          <ScalarProperty Name="proveedorBloqueado" ColumnName="proveedorBloqueado" />
+          <ScalarProperty Name="ordenBloqueada" ColumnName="ordenBloqueada" />
+          <ScalarProperty Name="diasCobro" ColumnName="diasCobro" />
+          <ScalarProperty Name="aprobado" ColumnName="aprobado" />
+          <ScalarProperty Name="contReprog" ColumnName="contReprog" />
+          <ScalarProperty Name="documentoPagable" ColumnName="documentoPagable" />
+          <ScalarProperty Name="aPagar" ColumnName="aPagar" />
+          <ScalarProperty Name="nombreAgrupador" ColumnName="nombreAgrupador" />
+          <ScalarProperty Name="ordenAgrupador" ColumnName="ordenAgrupador" />
+          <ScalarProperty Name="ordenProveedor" ColumnName="ordenProveedor" />
+          <ScalarProperty Name="cuentaProveedor" ColumnName="cuentaProveedor" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_LOTE_SP" FunctionName="PagosModel.Store.SEL_LOTE_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_LOTE_SP_Result">
+          <ScalarProperty Name="idLotePago" ColumnName="idLotePago" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="totalPagar" ColumnName="totalPagar" />
+          <ScalarProperty Name="carteraVencida" ColumnName="carteraVencida" />
+          <ScalarProperty Name="noIncluido" ColumnName="noIncluido" />
+          <ScalarProperty Name="noPagable" ColumnName="noPagable" />
+          <ScalarProperty Name="reprogramado" ColumnName="reprogramado" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_LOTE_SP2" FunctionName="PagosModel.Store.SEL_LOTE_SP2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_LOTE_SP2_Result">
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="totalPagar" ColumnName="totalPagar" />
+          <ScalarProperty Name="carteraVencida" ColumnName="carteraVencida" />
+          <ScalarProperty Name="noIncluido" ColumnName="noIncluido" />
+          <ScalarProperty Name="noPagable" ColumnName="noPagable" />
+          <ScalarProperty Name="reprogramado" ColumnName="reprogramado" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_PROG_PAGOS_GUARDADA_SP" FunctionName="PagosModel.Store.SEL_PROG_PAGOS_GUARDADA_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_PROG_PAGOS_GUARDADA_SP_Result">
+          <ScalarProperty Name="idPadre" ColumnName="idPadre" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="polTipo" ColumnName="polTipo" />
+          <ScalarProperty Name="annio" ColumnName="annio" />
+          <ScalarProperty Name="polMes" ColumnName="polMes" />
+          <ScalarProperty Name="polConsecutivo" ColumnName="polConsecutivo" />
+          <ScalarProperty Name="polMovimiento" ColumnName="polMovimiento" />
+          <ScalarProperty Name="polFechaOperacion" ColumnName="polFechaOperacion" />
+          <ScalarProperty Name="cuenta" ColumnName="cuenta" />
+          <ScalarProperty Name="proveedor" ColumnName="proveedor" />
+          <ScalarProperty Name="documento" ColumnName="documento" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="tipoDocto" ColumnName="tipoDocto" />
+          <ScalarProperty Name="cartera" ColumnName="cartera" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="saldoPorcentaje" ColumnName="saldoPorcentaje" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="fechaVencimiento" ColumnName="fechaVencimiento" />
+          <ScalarProperty Name="fechaPromesaPago" ColumnName="fechaPromesaPago" />
+          <ScalarProperty Name="fechaRecepcion" ColumnName="fechaRecepcion" />
+          <ScalarProperty Name="fechaFactura" ColumnName="fechaFactura" />
+          <ScalarProperty Name="ordenCompra" ColumnName="ordenCompra" />
+          <ScalarProperty Name="idEstatus" ColumnName="idEstatus" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="anticipo" ColumnName="anticipo" />
+          <ScalarProperty Name="anticipoAplicado" ColumnName="anticipoAplicado" />
+          <ScalarProperty Name="proveedorBloqueado" ColumnName="proveedorBloqueado" />
+          <ScalarProperty Name="ordenBloqueada" ColumnName="ordenBloqueada" />
+          <ScalarProperty Name="diasCobro" ColumnName="diasCobro" />
+          <ScalarProperty Name="aprobado" ColumnName="aprobado" />
+          <ScalarProperty Name="contReprog" ColumnName="contReprog" />
+          <ScalarProperty Name="documentoPagable" ColumnName="documentoPagable" />
+          <ScalarProperty Name="aPagar" ColumnName="aPagar" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_PROGRAMACION_PAGOS_POLIZAS_SP" FunctionName="PagosModel.Store.SEL_PROGRAMACION_PAGOS_POLIZAS_SP" />
+    <FunctionImportMapping FunctionImportName="SEL_PROGRAMACION_PAGOS_SP" FunctionName="PagosModel.Store.SEL_PROGRAMACION_PAGOS_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_PROGRAMACION_PAGOS_SP_Result">
+          <ScalarProperty Name="polTipo" ColumnName="polTipo" />
+          <ScalarProperty Name="annio" ColumnName="annio" />
+          <ScalarProperty Name="polMes" ColumnName="polMes" />
+          <ScalarProperty Name="polConsecutivo" ColumnName="polConsecutivo" />
+          <ScalarProperty Name="polMovimiento" ColumnName="polMovimiento" />
+          <ScalarProperty Name="polFechaOperacion" ColumnName="polFechaOperacion" />
+          <ScalarProperty Name="documento" ColumnName="documento" />
+          <ScalarProperty Name="cuenta" ColumnName="cuenta" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="proveedor" ColumnName="proveedor" />
+          <ScalarProperty Name="tipoDocto" ColumnName="tipoDocto" />
+          <ScalarProperty Name="cartera" ColumnName="cartera" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="saldoPorcentaje" ColumnName="saldoPorcentaje" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="fechaVencimiento" ColumnName="fechaVencimiento" />
+          <ScalarProperty Name="fechaPromesaPago" ColumnName="fechaPromesaPago" />
+          <ScalarProperty Name="fechaRecepcion" ColumnName="fechaRecepcion" />
+          <ScalarProperty Name="fechaFactura" ColumnName="fechaFactura" />
+          <ScalarProperty Name="ordenCompra" ColumnName="ordenCompra" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="idEstatus" ColumnName="idEstatus" />
+          <ScalarProperty Name="anticipo" ColumnName="anticipo" />
+          <ScalarProperty Name="anticipoAplicado" ColumnName="anticipoAplicado" />
+          <ScalarProperty Name="proveedorBloqueado" ColumnName="proveedorBloqueado" />
+          <ScalarProperty Name="ordenBloqueada" ColumnName="ordenBloqueada" />
+          <ScalarProperty Name="diasCobro" ColumnName="diasCobro" />
+          <ScalarProperty Name="aprobado" ColumnName="aprobado" />
+          <ScalarProperty Name="contReprog" ColumnName="contReprog" />
+          <ScalarProperty Name="documentoPagable" ColumnName="documentoPagable" />
+          <ScalarProperty Name="aPagar" ColumnName="aPagar" />
+          <ScalarProperty Name="nombreAgrupador" ColumnName="nombreAgrupador" />
+          <ScalarProperty Name="ordenAgrupador" ColumnName="ordenAgrupador" />
+          <ScalarProperty Name="ordenProveedor" ColumnName="ordenProveedor" />
+          <ScalarProperty Name="cuentaPagadora" ColumnName="cuentaPagadora" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_PROGRAMACION_PAGOS_SP_Respaldo" FunctionName="PagosModel.Store.SEL_PROGRAMACION_PAGOS_SP_Respaldo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_PROGRAMACION_PAGOS_SP_Respaldo_Result">
+          <ScalarProperty Name="polTipo" ColumnName="polTipo" />
+          <ScalarProperty Name="annio" ColumnName="annio" />
+          <ScalarProperty Name="polMes" ColumnName="polMes" />
+          <ScalarProperty Name="polConsecutivo" ColumnName="polConsecutivo" />
+          <ScalarProperty Name="polMovimiento" ColumnName="polMovimiento" />
+          <ScalarProperty Name="polFechaOperacion" ColumnName="polFechaOperacion" />
+          <ScalarProperty Name="documento" ColumnName="documento" />
+          <ScalarProperty Name="cuenta" ColumnName="cuenta" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="proveedor" ColumnName="proveedor" />
+          <ScalarProperty Name="tipoDocto" ColumnName="tipoDocto" />
+          <ScalarProperty Name="cartera" ColumnName="cartera" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="saldoPorcentaje" ColumnName="saldoPorcentaje" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="fechaVencimiento" ColumnName="fechaVencimiento" />
+          <ScalarProperty Name="fechaPromesaPago" ColumnName="fechaPromesaPago" />
+          <ScalarProperty Name="fechaRecepcion" ColumnName="fechaRecepcion" />
+          <ScalarProperty Name="fechaFactura" ColumnName="fechaFactura" />
+          <ScalarProperty Name="ordenCompra" ColumnName="ordenCompra" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="idEstatus" ColumnName="idEstatus" />
+          <ScalarProperty Name="anticipo" ColumnName="anticipo" />
+          <ScalarProperty Name="anticipoAplicado" ColumnName="anticipoAplicado" />
+          <ScalarProperty Name="proveedorBloqueado" ColumnName="proveedorBloqueado" />
+          <ScalarProperty Name="ordenBloqueada" ColumnName="ordenBloqueada" />
+          <ScalarProperty Name="diasCobro" ColumnName="diasCobro" />
+          <ScalarProperty Name="aprobado" ColumnName="aprobado" />
+          <ScalarProperty Name="contReprog" ColumnName="contReprog" />
+          <ScalarProperty Name="documentoPagable" ColumnName="documentoPagable" />
+          <ScalarProperty Name="aPagar" ColumnName="aPagar" />
+          <ScalarProperty Name="nombreAgrupador" ColumnName="nombreAgrupador" />
+          <ScalarProperty Name="ordenAgrupador" ColumnName="ordenAgrupador" />
+          <ScalarProperty Name="ordenProveedor" ColumnName="ordenProveedor" />
+          <ScalarProperty Name="cuentaPagadora" ColumnName="cuentaPagadora" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_PROGRAMACION_PAGOS_SP_T" FunctionName="PagosModel.Store.SEL_PROGRAMACION_PAGOS_SP_T" />
+    <FunctionImportMapping FunctionImportName="SEL_PROGRAMACION_PAGOS_SP5" FunctionName="PagosModel.Store.SEL_PROGRAMACION_PAGOS_SP5">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_PROGRAMACION_PAGOS_SP5_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="polTipo" ColumnName="polTipo" />
+          <ScalarProperty Name="polAnnio" ColumnName="polAnnio" />
+          <ScalarProperty Name="polMes" ColumnName="polMes" />
+          <ScalarProperty Name="polConsecutivo" ColumnName="polConsecutivo" />
+          <ScalarProperty Name="polMovimiento" ColumnName="polMovimiento" />
+          <ScalarProperty Name="polFechaOperacion" ColumnName="polFechaOperacion" />
+          <ScalarProperty Name="documento" ColumnName="documento" />
+          <ScalarProperty Name="cuenta" ColumnName="cuenta" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="proveedor" ColumnName="proveedor" />
+          <ScalarProperty Name="tipoDocto" ColumnName="tipoDocto" />
+          <ScalarProperty Name="cartera" ColumnName="cartera" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="saldoPorcentaje" ColumnName="saldoPorcentaje" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="fechaVencimiento" ColumnName="fechaVencimiento" />
+          <ScalarProperty Name="fechaPromesaPago" ColumnName="fechaPromesaPago" />
+          <ScalarProperty Name="fechaRecepcion" ColumnName="fechaRecepcion" />
+          <ScalarProperty Name="fechaFactura" ColumnName="fechaFactura" />
+          <ScalarProperty Name="ordenCompra" ColumnName="ordenCompra" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="idEstatus" ColumnName="idEstatus" />
+          <ScalarProperty Name="anticipo" ColumnName="anticipo" />
+          <ScalarProperty Name="anticipoAplicado" ColumnName="anticipoAplicado" />
+          <ScalarProperty Name="proveedorBloqueado" ColumnName="proveedorBloqueado" />
+          <ScalarProperty Name="ordenBloqueada" ColumnName="ordenBloqueada" />
+          <ScalarProperty Name="diasCobro" ColumnName="diasCobro" />
+          <ScalarProperty Name="aprobado" ColumnName="aprobado" />
+          <ScalarProperty Name="contReprog" ColumnName="contReprog" />
+          <ScalarProperty Name="documentoPagable" ColumnName="documentoPagable" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_PROGRAMACION_PAGOS_SP5_1" FunctionName="PagosModel.Store.SEL_PROGRAMACION_PAGOS_SP5_1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_PROGRAMACION_PAGOS_SP5_1_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="polTipo" ColumnName="polTipo" />
+          <ScalarProperty Name="polAnnio" ColumnName="polAnnio" />
+          <ScalarProperty Name="polMes" ColumnName="polMes" />
+          <ScalarProperty Name="polConsecutivo" ColumnName="polConsecutivo" />
+          <ScalarProperty Name="polMovimiento" ColumnName="polMovimiento" />
+          <ScalarProperty Name="polFechaOperacion" ColumnName="polFechaOperacion" />
+          <ScalarProperty Name="documento" ColumnName="documento" />
+          <ScalarProperty Name="cuenta" ColumnName="cuenta" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="proveedor" ColumnName="proveedor" />
+          <ScalarProperty Name="tipoDocto" ColumnName="tipoDocto" />
+          <ScalarProperty Name="cartera" ColumnName="cartera" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="saldoPorcentaje" ColumnName="saldoPorcentaje" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="fechaVencimiento" ColumnName="fechaVencimiento" />
+          <ScalarProperty Name="fechaPromesaPago" ColumnName="fechaPromesaPago" />
+          <ScalarProperty Name="fechaRecepcion" ColumnName="fechaRecepcion" />
+          <ScalarProperty Name="fechaFactura" ColumnName="fechaFactura" />
+          <ScalarProperty Name="ordenCompra" ColumnName="ordenCompra" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="idEstatus" ColumnName="idEstatus" />
+          <ScalarProperty Name="anticipo" ColumnName="anticipo" />
+          <ScalarProperty Name="anticipoAplicado" ColumnName="anticipoAplicado" />
+          <ScalarProperty Name="proveedorBloqueado" ColumnName="proveedorBloqueado" />
+          <ScalarProperty Name="ordenBloqueada" ColumnName="ordenBloqueada" />
+          <ScalarProperty Name="diasCobro" ColumnName="diasCobro" />
+          <ScalarProperty Name="aprobado" ColumnName="aprobado" />
+          <ScalarProperty Name="contReprog" ColumnName="contReprog" />
+          <ScalarProperty Name="documentoPagable" ColumnName="documentoPagable" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_PROVEEDORES_CTA_PAGADORA_SP" FunctionName="PagosModel.Store.SEL_PROVEEDORES_CTA_PAGADORA_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_PROVEEDORES_CTA_PAGADORA_SP_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="nombreProveedor" ColumnName="nombreProveedor" />
+          <ScalarProperty Name="idCuentaPagadora" ColumnName="idCuentaPagadora" />
+          <ScalarProperty Name="cuentaPagadora" ColumnName="cuentaPagadora" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_PROVEEDORES_SP" FunctionName="PagosModel.Store.SEL_PROVEEDORES_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_PROVEEDORES_SP_Result">
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="nomProveedor" ColumnName="nomProveedor" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_TOTAL_BANCOS_DINAMICO_SP" FunctionName="PagosModel.Store.SEL_TOTAL_BANCOS_DINAMICO_SP" />
+    <FunctionImportMapping FunctionImportName="SEL_TOTAL_BANCOS_SP" FunctionName="PagosModel.Store.SEL_TOTAL_BANCOS_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_TOTAL_BANCOS_SP_Result">
+          <ScalarProperty Name="cuentaPagadora" ColumnName="cuentaPagadora" />
+          <ScalarProperty Name="sumaSaldo" ColumnName="sumaSaldo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_TOTAL_BANCOS_SP_Respaldo" FunctionName="PagosModel.Store.SEL_TOTAL_BANCOS_SP_Respaldo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_TOTAL_BANCOS_SP_Respaldo_Result">
+          <ScalarProperty Name="cuentaPagadora" ColumnName="cuentaPagadora" />
+          <ScalarProperty Name="sumaSaldo" ColumnName="sumaSaldo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEL_USUARIOS_SP" FunctionName="PagosModel.Store.SEL_USUARIOS_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.SEL_USUARIOS_SP_Result">
+          <ScalarProperty Name="usu_idusuario" ColumnName="usu_idusuario" />
+          <ScalarProperty Name="suc_idsucursal" ColumnName="suc_idsucursal" />
+          <ScalarProperty Name="dep_iddepartamento" ColumnName="dep_iddepartamento" />
+          <ScalarProperty Name="usu_nombreusu" ColumnName="usu_nombreusu" />
+          <ScalarProperty Name="usu_paterno" ColumnName="usu_paterno" />
+          <ScalarProperty Name="usu_materno" ColumnName="usu_materno" />
+          <ScalarProperty Name="usu_nombre" ColumnName="usu_nombre" />
+          <ScalarProperty Name="pto_idpuesto" ColumnName="pto_idpuesto" />
+          <ScalarProperty Name="usu_estatus" ColumnName="usu_estatus" />
+          <ScalarProperty Name="emp_idempresa" ColumnName="emp_idempresa" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="PagosModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="PagosModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="PagosModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="PagosModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="PagosModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PagosModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="PagosModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="PagosModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>
